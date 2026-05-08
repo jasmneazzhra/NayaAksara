@@ -1,0 +1,6 @@
+filename,label,source,width,height,is_clean,split,notes
+ha_001.png,ha,handwriting,512,512,yes,train,clean image
+na_001.png,na,handwriting,512,512,yes,train,clean image
+ca_001.png,ca,digital,512,512,yes,val,digital sample
+ya13.png,ya,prediction,512,512,no,test,inference sample
+wa8.png,wa,prediction,512,512,no,test,inference sample
