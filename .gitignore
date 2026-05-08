@@ -1,0 +1,15 @@
+dataset/*
+!dataset/raw/
+!dataset/cleaned/
+!dataset/augmented/
+!dataset/raw/.gitkeep
+!dataset/cleaned/.gitkeep
+!dataset/augmented/.gitkeep
+
+models/*
+!models/.gitkeep
+
+__pycache__/
+.ipynb_checkpoints/
+.env
+*.pyc
