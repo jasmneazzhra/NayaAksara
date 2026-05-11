@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Poppins:wght@300;400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+.login-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+}
+
+/* LEFT SIDE */
+
+.login-left {
+  flex: 1;
+  background: linear-gradient(to right, #5C3B2E, #6B4332);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px;
+}
+
+.branding {
+  text-align: center;
+}
+
+.branding h1 {
+  font-family: "Cinzel", serif;
+  font-size: 72px;
+  font-weight: 500;
+  letter-spacing: 5px;
+  color: #D4AF37;
+}
+
+.line {
+  width: 90px;
+  height: 2px;
+  background-color: #D4AF37;
+  margin: 30px auto;
+}
+
+.branding p {
+  font-family: "Cinzel", serif;
+  font-size: 20px;
+  color: #F5E6CA;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* RIGHT SIDE */
+
+.login-right {
+  flex: 1;
+  background-color: #F5EEDC;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: flex-start;
+  align-items: center;
+
+  padding: 40px 30px;
+  overflow-y: auto;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 460px;
+  margin-top: 20px;
+  background-color: #FFFFFF;
+  border: 1px solid #D4AF37;
+  border-radius: 12px;
+  padding: 35px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.login-card h2 {
+  text-align: center;
+  font-family: "Cinzel", serif;
+  font-size: 34px;
+  color: #5C3B2E;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #8A7A6B;
+  margin-bottom: 35px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+/* FORM */
+
+.form-group {
+  margin-bottom: 22px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 10px;
+  color: #5C3B2E;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #D4AF37;
+  outline: none;
+  border-radius: 5px;
+  font-size: 14px;
+  background-color: transparent;
+
+  /* FIX TEXT COLOR */
+  color: #1E1E1E;
+}
+
+.form-group input::placeholder {
+  color: #9A8B7B;
+}
+
+.password-input {
+  position: relative;
+}
+
+.password-input span {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+/* OPTIONS */
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  font-size: 13px;
+}
+
+.options label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #5C3B2E;
+}
+
+.options a {
+  color: #7A5A45;
+  text-decoration: none;
+}
+
+/* BUTTON */
+
+.signin-btn {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  background-color: #5C3B2E;
+  color: #FFFFFF;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+.signin-btn:hover {
+  background-color: #4A2F24;
+}
+
+/* DIVIDER */
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 30px 0;
+}
+
+.divider span {
+  flex: 1;
+  height: 1px;
+  background-color: #D4AF37;
+}
+
+.divider p {
+  font-size: 13px;
+  color: #7A5A45;
+  text-transform: uppercase;
+}
+
+/* SOCIAL BUTTON */
+
+.social-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-buttons button {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #D4AF37;
+  background: transparent;
+  cursor: pointer;
+  color: #5C3B2E;
+  transition: 0.3s;
+  border-radius: 5px;
+}
+
+.social-buttons button:hover {
+  background-color: #F5E6CA;
+}
+
+/* SIGNUP */
+
+.signup-text {
+  margin-top: 28px;
+  text-align: center;
+  font-size: 14px;
+  color: #5C3B2E;
+}
+
+.signup-text a {
+  color: #8B5E3C;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* COPYRIGHT */
+
+.copyright {
+  margin-top: 25px;
+  font-size: 12px;
+  color: #9B8A78;
+}
+
+/* RESPONSIVE */
+
+@media screen and (max-width: 900px) {
+  .login-left {
+    display: none;
+  }
+
+  .login-right {
+    width: 100%;
+  }
+
+  .login-card {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .login-right {
+    padding: 20px;
+  }
+
+  .login-card {
+    padding: 30px 20px;
+  }
+
+  .login-card h2 {
+    font-size: 32px;
+  }
+
+  .social-buttons {
+    flex-direction: column;
+  }
+}

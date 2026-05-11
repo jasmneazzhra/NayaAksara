@@ -1,0 +1,547 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Poppins:wght@300;400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #F5EEDC;
+}
+
+.how-page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #F5EEDC;
+}
+
+/* NAVBAR */
+
+.navbar {
+  width: 100%;
+  padding: 28px 100px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 22px;
+
+  border-bottom: 1px solid #C8A96B;
+}
+
+.logo h1 {
+  font-family: "Cinzel", serif;
+  font-size: 54px;
+  color: #5C3B2E;
+  font-weight: 500;
+}
+
+/* NAV LINKS */
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-links a {
+  text-decoration: none;
+
+  color: #7A5A45;
+  font-family: "Cinzel", serif;
+  font-size: 22px;
+
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #5C3B2E;
+}
+
+.nav-links .active {
+  background-color: #6B4332;
+  color: #FFFFFF;
+
+  padding: 14px 24px;
+  border-radius: 12px;
+}
+
+/* HERO */
+
+.how-hero {
+  width: 100%;
+
+  text-align: center;
+
+  padding: 80px 20px 70px;
+}
+
+.how-hero h1 {
+  font-family: "Cinzel", serif;
+  font-size: 88px;
+
+  color: #6B4332;
+
+  margin-bottom: 35px;
+}
+
+.how-hero p {
+  max-width: 1100px;
+  margin: 0 auto;
+
+  font-family: "Cinzel", serif;
+  font-size: 32px;
+
+  line-height: 1.7;
+
+  color: #7A5A45;
+}
+
+/* STEP SECTION */
+
+.step-section {
+  width: 100%;
+
+  padding: 0 100px;
+}
+
+.step-card {
+  width: 100%;
+
+  background-color: #FFFFFF;
+
+  border-radius: 28px;
+
+  padding: 45px;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* NUMBER */
+
+.step-number {
+  min-width: 120px;
+  height: 120px;
+
+  border-radius: 50%;
+
+  background: linear-gradient(to bottom right, #6B4332, #744636);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.step-number span {
+  font-family: "Cinzel", serif;
+  font-size: 54px;
+
+  color: #FFFFFF;
+}
+
+/* CONTENT */
+
+.step-content {
+  flex: 1;
+}
+
+.step-title {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  margin-bottom: 25px;
+}
+
+.step-icon {
+  font-size: 48px;
+  color: #2F6B3F;
+}
+
+.step-title h2 {
+  font-family: "Cinzel", serif;
+  font-size: 54px;
+
+  color: #6B4332;
+}
+
+.step-description {
+  font-family: "Cinzel", serif;
+  font-size: 30px;
+
+  line-height: 1.8;
+
+  color: #6B4332;
+
+  margin-bottom: 30px;
+}
+
+/* LIST */
+
+.step-list {
+  padding-left: 28px;
+}
+
+.step-list li {
+  font-family: "Cinzel", serif;
+  font-size: 24px;
+
+  line-height: 2;
+
+  color: #8A7A6B;
+}
+
+/* SPACE */
+
+.bottom-space {
+  height: 100px;
+}
+
+/* ALT CARD */
+
+.alt-card {
+  background-color: #F2E8D5;
+}
+
+/* ASSESS SECTION */
+
+.assess-section {
+  width: 100%;
+
+  padding: 90px 100px 60px;
+
+  text-align: center;
+}
+
+.assess-section h2 {
+  font-family: "Cinzel", serif;
+  font-size: 72px;
+
+  color: #6B4332;
+
+  margin-bottom: 60px;
+}
+
+/* GRID */
+
+.assess-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 35px;
+}
+
+/* CARD */
+
+.assess-card {
+  background-color: #FFFFFF;
+
+  border: 2px solid #D4AF37;
+  border-radius: 22px;
+
+  padding: 35px;
+
+  text-align: left;
+
+  transition: 0.3s ease;
+}
+
+.assess-card:hover {
+  transform: translateY(-6px);
+}
+
+.assess-card h3 {
+  font-family: "Cinzel", serif;
+  font-size: 34px;
+
+  color: #6B4332;
+
+  margin-bottom: 22px;
+}
+
+.assess-card p {
+  font-family: "Cinzel", serif;
+  font-size: 22px;
+
+  line-height: 1.8;
+
+  color: #7A5A45;
+}
+
+.tips-section {
+  width: 100%;
+  padding: 20px 100px 100px;
+}
+
+.tips-container {
+  background: linear-gradient(to right, #6B4332, #744636);
+
+  border-radius: 24px;
+
+  padding: 50px 40px;
+}
+
+.tips-container h2 {
+  font-family: "Cinzel", serif;
+  font-size: 42px;
+  color: #FFFFFF;
+
+  margin-bottom: 45px;
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 60px;
+}
+
+.tips-column h3 {
+  font-family: "Cinzel", serif;
+  font-size: 30px;
+
+  color: #D4AF37;
+
+  margin-bottom: 28px;
+}
+
+.tips-column ul {
+  list-style: none;
+}
+
+.tips-column li {
+  font-family: "Cinzel", serif;
+  font-size: 22px;
+
+  color: #F5E6CA;
+
+  line-height: 2;
+}
+
+/* CTA SECTION */
+
+.cta-section {
+  width: 100%;
+  padding: 40px 20px 90px;
+
+  text-align: center;
+}
+
+.cta-section h2 {
+  font-family: "Cinzel", serif;
+  font-size: 64px;
+
+  color: #6B4332;
+
+  margin-bottom: 35px;
+}
+
+.cta-section p {
+  font-family: "Cinzel", serif;
+  font-size: 28px;
+
+  color: #7A5A45;
+
+  margin-bottom: 50px;
+}
+
+.cta-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #2F6B3F;
+  color: #FFFFFF;
+
+  padding: 24px 48px;
+
+  border-radius: 18px;
+
+  text-decoration: none;
+
+  font-family: "Cinzel", serif;
+  font-size: 24px;
+
+  transition: 0.3s ease;
+
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.cta-btn:hover {
+  background-color: #255634;
+}
+
+/* RESPONSIVE */
+
+@media screen and (max-width: 1200px) {
+  .how-hero h1 {
+    font-size: 68px;
+  }
+
+  .how-hero p {
+    font-size: 26px;
+  }
+
+  .step-title h2 {
+    font-size: 42px;
+  }
+
+  .step-description {
+    font-size: 24px;
+  }
+   .assess-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .assess-section h2 {
+    font-size: 54px;
+  }
+
+  .assess-card h3 {
+    font-size: 28px;
+  }
+
+  .assess-card p {
+    font-size: 20px;
+  }
+  .tips-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .step-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .step-title {
+    justify-content: center;
+  }
+
+  .step-list {
+    text-align: left;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding: 25px;
+  }
+
+  .logo h1 {
+    font-size: 38px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .nav-links a {
+    font-size: 18px;
+  }
+
+  .how-hero {
+    padding: 60px 20px 50px;
+  }
+
+  .how-hero h1 {
+    font-size: 52px;
+  }
+
+  .how-hero p {
+    font-size: 20px;
+  }
+
+  .step-section {
+    padding: 0 25px;
+  }
+
+  .step-card {
+    padding: 30px 25px;
+  }
+
+  .step-number {
+    min-width: 90px;
+    height: 90px;
+  }
+
+  .step-number span {
+    font-size: 40px;
+  }
+
+  .step-title h2 {
+    font-size: 30px;
+  }
+
+  .step-description {
+    font-size: 18px;
+  }
+
+  .step-list li {
+    font-size: 16px;
+  }
+  .assess-section {
+    padding: 70px 25px 40px;
+  }
+
+  .assess-section h2 {
+    font-size: 40px;
+  }
+
+  .assess-card {
+    padding: 28px;
+  }
+
+  .assess-card h3 {
+    font-size: 24px;
+  }
+
+  .assess-card p {
+    font-size: 16px;
+  }
+  .tips-section {
+    padding: 30px 25px 70px;
+  }
+   .tips-container {
+    padding: 35px 25px;
+  }
+
+  .tips-container h2 {
+    font-size: 34px;
+  }
+
+  .tips-column h3 {
+    font-size: 24px;
+  }
+
+  .tips-column li {
+    font-size: 18px;
+  }
+   .cta-section h2 {
+    font-size: 42px;
+  }
+
+  .cta-section p {
+    font-size: 20px;
+  }
+
+  .cta-btn {
+    width: 100%;
+    font-size: 20px;
+  }
+}

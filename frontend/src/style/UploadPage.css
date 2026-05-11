@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Poppins:wght@300;400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #F5EEDC;
+}
+
+.upload-page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #F5EEDC;
+}
+
+/* NAVBAR */
+
+.navbar {
+  width: 100%;
+  padding: 28px 100px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 22px;
+
+  border-bottom: 1px solid #C8A96B;
+}
+
+.logo h1 {
+  font-family: "Cinzel", serif;
+  font-size: 54px;
+  color: #5C3B2E;
+  font-weight: 500;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-links a {
+  text-decoration: none;
+
+  color: #7A5A45;
+  font-family: "Cinzel", serif;
+  font-size: 22px;
+
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #5C3B2E;
+}
+
+.nav-links .active {
+  background-color: #6B4332;
+  color: #FFFFFF;
+
+  padding: 14px 24px;
+  border-radius: 12px;
+}
+
+/* HEADER */
+
+.upload-header {
+  text-align: center;
+  padding: 60px 20px 30px;
+}
+
+.upload-header h1 {
+  font-family: "Cinzel", serif;
+  font-size: 72px;
+  color: #6B4332;
+
+  margin-bottom: 10px;
+}
+
+.upload-header p {
+  font-family: "Cinzel", serif;
+  font-size: 24px;
+  color: #8A7A6B;
+}
+
+/* UPLOAD SECTION */
+
+.upload-section {
+  width: 100%;
+  padding: 20px 100px 60px;
+}
+
+.upload-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.upload-content h2 {
+  font-family: "Cinzel", serif;
+  font-size: 44px;
+  color: #6B4332;
+
+  margin-bottom: 20px;
+}
+
+.upload-content p {
+  max-width: 900px;
+  margin: 0 auto;
+
+  font-family: "Cinzel", serif;
+  font-size: 22px;
+  line-height: 1.8;
+
+  color: #7A5A45;
+
+  margin-bottom: 50px;
+}
+
+/* UPLOAD BOX */
+
+.upload-box {
+  width: 100%;
+
+  background-color: #FFFFFF;
+
+  border: 2px dashed #C8A96B;
+  border-radius: 24px;
+
+  padding: 70px 30px;
+
+  margin-bottom: 60px;
+}
+
+.upload-icon {
+  width: 100px;
+  height: 100px;
+
+  margin: 0 auto 30px;
+
+  border-radius: 50%;
+  background-color: #F3E7D2;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 48px;
+  color: #6B4332;
+}
+
+.upload-box h3 {
+  font-family: "Cinzel", serif;
+  font-size: 34px;
+  color: #6B4332;
+
+  margin-bottom: 14px;
+}
+
+.upload-box span {
+  display: block;
+
+  font-family: "Cinzel", serif;
+  font-size: 18px;
+
+  color: #9B8A78;
+
+  margin-bottom: 28px;
+}
+
+.upload-box button {
+  background-color: #C8A96B;
+  color: #5C3B2E;
+
+  border: none;
+
+  padding: 16px 34px;
+
+  border-radius: 12px;
+
+  font-family: "Cinzel", serif;
+  font-size: 18px;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+
+  margin-bottom: 28px;
+}
+
+.upload-box button:hover {
+  background-color: #B99754;
+}
+
+.upload-box small {
+  display: block;
+
+  font-family: "Cinzel", serif;
+  font-size: 16px;
+
+  color: #B1A08F;
+}
+
+/* FEATURES */
+
+.upload-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 28px;
+}
+
+.upload-card {
+  background-color: #FFFFFF;
+
+  border: 2px solid #D4AF37;
+  border-radius: 18px;
+
+  padding: 32px;
+
+  text-align: left;
+}
+
+.upload-card h3 {
+  font-family: "Cinzel", serif;
+  font-size: 30px;
+
+  color: #6B4332;
+
+  margin-bottom: 18px;
+}
+
+.upload-card p {
+  font-family: "Cinzel", serif;
+  font-size: 18px;
+
+  line-height: 1.8;
+
+  color: #7A5A45;
+
+  margin-bottom: 0;
+}
+
+/* EXTRA SPACE */
+
+.bottom-space {
+  height: 80px;
+}
+
+/* RESPONSIVE */
+
+@media screen and (max-width: 1200px) {
+  .upload-features {
+    grid-template-columns: 1fr;
+  }
+
+  .upload-content h2 {
+    font-size: 38px;
+  }
+
+  .upload-content p {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding: 25px;
+  }
+
+  .logo h1 {
+    font-size: 38px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .nav-links a {
+    font-size: 18px;
+  }
+
+  .upload-header h1 {
+    font-size: 46px;
+  }
+
+  .upload-header p {
+    font-size: 18px;
+  }
+
+  .upload-section {
+    padding: 20px 25px 60px;
+  }
+
+  .upload-content h2 {
+    font-size: 32px;
+  }
+
+  .upload-content p {
+    font-size: 18px;
+  }
+
+  .upload-box {
+    padding: 50px 20px;
+  }
+
+  .upload-box h3 {
+    font-size: 26px;
+  }
+
+  .upload-card h3 {
+    font-size: 24px;
+  }
+
+  .upload-card p {
+    font-size: 16px;
+  }
+}
