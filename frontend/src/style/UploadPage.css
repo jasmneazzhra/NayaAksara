@@ -24,17 +24,13 @@ body {
   background-color: #F5EEDC;
 }
 
-/* NAVBAR */
-
 .navbar {
   width: 100%;
   padding: 28px 100px;
-
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 22px;
-
   border-bottom: 1px solid #C8A96B;
 }
 
@@ -53,11 +49,9 @@ body {
 
 .nav-links a {
   text-decoration: none;
-
   color: #7A5A45;
   font-family: "Cinzel", serif;
   font-size: 22px;
-
   transition: 0.3s;
 }
 
@@ -68,24 +62,21 @@ body {
 .nav-links .active {
   background-color: #6B4332;
   color: #FFFFFF;
-
   padding: 14px 24px;
   border-radius: 12px;
 }
 
-/* HEADER */
-
 .upload-header {
   text-align: center;
-  padding: 60px 20px 30px;
+  padding: 50px 20px 20px;
 }
 
 .upload-header h1 {
   font-family: "Cinzel", serif;
   font-size: 72px;
   color: #6B4332;
-
-  margin-bottom: 10px;
+  margin-bottom: 6px;
+  line-height: 1.15;
 }
 
 .upload-header p {
@@ -94,11 +85,9 @@ body {
   color: #8A7A6B;
 }
 
-/* UPLOAD SECTION */
-
 .upload-section {
   width: 100%;
-  padding: 20px 100px 60px;
+  padding: 10px 100px 50px;
 }
 
 .upload-content {
@@ -111,51 +100,38 @@ body {
   font-family: "Cinzel", serif;
   font-size: 44px;
   color: #6B4332;
-
-  margin-bottom: 20px;
+  margin-bottom: 14px;
+  line-height: 1.2;
 }
 
 .upload-content p {
   max-width: 900px;
   margin: 0 auto;
-
   font-family: "Cinzel", serif;
   font-size: 22px;
-  line-height: 1.8;
-
+  line-height: 1.6;
   color: #7A5A45;
-
-  margin-bottom: 50px;
+  margin-bottom: 38px;
 }
-
-/* UPLOAD BOX */
 
 .upload-box {
   width: 100%;
-
   background-color: #FFFFFF;
-
   border: 2px dashed #C8A96B;
   border-radius: 24px;
-
-  padding: 70px 30px;
-
+  padding: 55px 30px;
   margin-bottom: 60px;
 }
 
 .upload-icon {
   width: 100px;
   height: 100px;
-
-  margin: 0 auto 30px;
-
+  margin: 0 auto 20px;
   border-radius: 50%;
   background-color: #F3E7D2;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   font-size: 48px;
   color: #6B4332;
 }
@@ -164,39 +140,30 @@ body {
   font-family: "Cinzel", serif;
   font-size: 34px;
   color: #6B4332;
-
-  margin-bottom: 14px;
+  margin-bottom: 8px;
+  line-height: 1.3;
 }
 
 .upload-box span {
   display: block;
-
   font-family: "Cinzel", serif;
   font-size: 18px;
-
   color: #9B8A78;
-
-  margin-bottom: 28px;
+  margin-bottom: 20px;
+  line-height: 1.5;
 }
 
 .upload-box button {
   background-color: #C8A96B;
   color: #5C3B2E;
-
   border: none;
-
   padding: 16px 34px;
-
   border-radius: 12px;
-
   font-family: "Cinzel", serif;
   font-size: 18px;
-
   cursor: pointer;
-
   transition: 0.3s ease;
-
-  margin-bottom: 28px;
+  margin-bottom: 18px;
 }
 
 .upload-box button:hover {
@@ -205,60 +172,44 @@ body {
 
 .upload-box small {
   display: block;
-
   font-family: "Cinzel", serif;
   font-size: 16px;
-
   color: #B1A08F;
 }
-
-/* FEATURES */
 
 .upload-features {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-
   gap: 28px;
 }
 
 .upload-card {
   background-color: #FFFFFF;
-
   border: 2px solid #D4AF37;
   border-radius: 18px;
-
   padding: 32px;
-
   text-align: left;
 }
 
 .upload-card h3 {
   font-family: "Cinzel", serif;
   font-size: 30px;
-
   color: #6B4332;
-
-  margin-bottom: 18px;
+  margin-bottom: 10px;
+  line-height: 1.3;
 }
 
 .upload-card p {
   font-family: "Cinzel", serif;
   font-size: 18px;
-
-  line-height: 1.8;
-
+  line-height: 1.6;
   color: #7A5A45;
-
   margin-bottom: 0;
 }
 
-/* EXTRA SPACE */
-
 .bottom-space {
-  height: 80px;
+  height: 50px;
 }
-
-/* RESPONSIVE */
 
 @media screen and (max-width: 1200px) {
   .upload-features {

@@ -1,88 +1,118 @@
 import { Link } from "react-router-dom";
+import { useState, useRef } from "react";
 import "./../style/UploadPage.css";
 
 function UploadPage() {
+  const [file, setFile] = useState(null);
+  const inputRef = useRef(null);
+
+  // handle file dari input / drop
+  const handleFile = (selectedFile) => {
+    if (!selectedFile) return;
+    setFile(selectedFile);
+  };
+
+  // drag events
+  const handleDrop = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const droppedFile = e.dataTransfer.files[0];
+    handleFile(droppedFile);
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+  };
+
+  // klik button → buka file picker
+  const handleClick = () => {
+    inputRef.current.click();
+  };
+
   return (
     <div className="upload-page">
-      {/* NAVBAR */}
       <header className="navbar">
         <div className="logo">
           <h1>NayaAksara</h1>
         </div>
 
         <nav className="nav-links">
-          <Link to="/">Home</Link>
-
-          <Link to="/upload" className="active">
-            Upload
-          </Link>
-
-          <a href="#">How It Works</a>
-          <a href="#">About</a>
+          <Link to="/" className="active">Beranda</Link>
+          <Link to="/upload">Unggah</Link>
+          <Link to="/how-it-works">Cara Kerja</Link>
+          <Link to="/about">Tentang</Link>
         </nav>
       </header>
 
-      {/* HEADER */}
       <section className="upload-header">
         <h1>NayaAksara</h1>
-
-        <p>Aksara Jawa Writing Assessment</p>
+        <p>Penilaian Tulisan Aksara Jawa</p>
       </section>
 
-      {/* UPLOAD SECTION */}
       <section className="upload-section">
         <div className="upload-content">
-          <h2>Upload Your Javanese Script Writing</h2>
+          <h2>Unggah Tulisan Aksara Jawa Anda</h2>
 
           <p>
-            Take a clear photo or scan of your Aksara Jawa handwriting. Our
-            system will analyze your writing and provide you with a detailed
-            assessment score.
+            Ambil foto atau scan tulisan tangan Aksara Jawa Anda dengan jelas.
+            Sistem kami akan menganalisis tulisan Anda dan memberikan skor penilaian yang detail.
           </p>
 
-          {/* UPLOAD BOX */}
-          <div className="upload-box">
+          {/* INPUT HIDDEN */}
+          <input
+            type="file"
+            ref={inputRef}
+            hidden
+            accept="image/*"
+            onChange={(e) => handleFile(e.target.files[0])}
+          />
+
+          {/* DROP AREA */}
+          <div
+            className="upload-box"
+            onDrop={handleDrop}
+            onDragOver={handleDragOver}
+            onClick={handleClick}
+            style={{ cursor: "pointer" }}
+          >
             <div className="upload-icon">↥</div>
 
-            <h3>Drag & Drop Your Image Here</h3>
+            <h3>Seret & Lepas Gambar Anda di Sini</h3>
+            <span>ATAU KLIK UNTUK MENCARI</span>
 
-            <span>OR CLICK TO BROWSE</span>
+            <button type="button">Pilih File</button>
 
-            <button>Choose File</button>
+            <small>FORMAT YANG DIDUKUNG: JPG, PNG, HEIC</small>
 
-            <small>SUPPORTED FORMATS: JPG, PNG, HEIC</small>
+            {/* PREVIEW */}
+            {file && (
+              <div style={{ marginTop: "10px" }}>
+                <p>📄 {file.name}</p>
+              </div>
+            )}
           </div>
 
-          {/* FEATURES */}
           <div className="upload-features">
-            {/* CARD 1 */}
             <div className="upload-card">
-              <h3>Clear Image</h3>
-
-              <p>
-                Ensure your writing is well-lit and in focus for accurate
-                assessment
-              </p>
+              <h3>Gambar yang Jelas</h3>
+              <p>Pastikan tulisan Anda terang dan fokus untuk penilaian yang akurat</p>
             </div>
 
-            {/* CARD 2 */}
             <div className="upload-card">
-              <h3>Complete Text</h3>
-
-              <p>Include all parts of your Aksara Jawa writing in the image</p>
+              <h3>Isi Lengkap</h3>
+              <p>Sertakan seluruh bagian tulisan Aksara Jawa dalam gambar</p>
             </div>
 
-            {/* CARD 3 */}
             <div className="upload-card">
-              <h3>Instant Results</h3>
-
-              <p>Get your detailed assessment score within seconds</p>
+              <h3>Hasil Instan</h3>
+              <p>Dapatkan skor penilaian detail Anda dalam hitungan detik</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* FOOTER SPACE */}
       <div className="bottom-space"></div>
     </div>
   );

@@ -4,99 +4,87 @@ import { Link } from "react-router-dom";
 function AboutPage() {
   return (
     <div className="about-page">
-      {/* NAVBAR */}
       <header className="navbar">
         <div className="logo">
           <h1>NayaAksara</h1>
         </div>
 
         <nav className="nav-links">
-          <Link to="/">Home</Link>
-          <Link to="/upload">Upload</Link>
-          <Link to="/how-it-works">How It Works</Link>
-          <Link to="/about" className="active">
-            About
-          </Link>
+          <Link to="/">Beranda</Link>
+          <Link to="/upload">Unggah</Link>
+          <Link to="/how-it-works">Cara Kerja</Link>
+          <Link to="/about" className="active">Tentang</Link>
         </nav>
       </header>
 
-      {/* HERO */}
       <section className="about-hero">
-        <h1>About NayaAksara</h1>
+        <h1>Tentang NayaAksara</h1>
 
         <p>
-          Preserving and promoting the beautiful art of Javanese script
-          through innovative technology and education
+          Melestarikan dan mempromosikan keindahan dari Aksara Jawa melalui teknologi pendidikan yang inovatif
         </p>
       </section>
 
-      {/* MISSION SECTION */}
       <section className="mission-section">
         <div className="mission-card">
           <div className="mission-title">
             <span className="mission-icon">◎</span>
-            <h2>Our Mission</h2>
+            <h2>Misi Kami</h2>
           </div>
 
           <p>
-            NayaAksara is dedicated to preserving the rich heritage of
-            Aksara Jawa (Javanese Script) by making it accessible and
-            engaging for learners of all levels. Through our advanced
-            assessment technology, we empower students, educators, and
-            enthusiasts to master this ancient writing system and keep
-            it alive for future generations.
+            NayaAksara berdedikasi untuk melestarikan kekayaan warisan Aksara Jawa dengan
+            membuatnya mudah diakses dan menarik bagi semua tingkat pembelajar. Melalui teknologi
+            penilaian yang canggih, kami memberdayakan siswa, pendidik, dan penggemar untuk menguasai
+            sistem tulisan kuno ini dan menjaganya tetap hidup untuk generasi mendatang.
           </p>
         </div>
       </section>
 
-      {/* VISION SECTION */}
       <section className="vision-section">
         <div className="vision-card">
           <div className="vision-title">
             <span className="vision-icon">✦</span>
-            <h2>Our Vision</h2>
+            <h2>Visi Kami</h2>
           </div>
 
           <p>
-            We envision a future where traditional Javanese culture and
-            modern technology work together harmoniously. NayaAksara aims
-            to become the leading platform for learning, assessing, and
-            appreciating Aksara Jawa across Indonesia and beyond.
+            Kami membayangkan masa depan di mana budaya tradisional Jawa dan teknologi
+            modern dapat berjalan beriringan secara harmonis. NayaAksara bertujuan menjadi 
+            platform terdepan untuk belajar, menilai, dan mengapresiasi Aksara Jawa di seluruh
+            Indonesia dan dunia.
           </p>
         </div>
       </section>
 
-      {/* VALUES SECTION */}
       <section className="values-section">
-        <h2>Core Values</h2>
+        <h2>Nilai Inti</h2>
 
         <div className="values-grid">
           <div className="value-card">
-            <h3>Cultural Preservation</h3>
+            <h3>Pelestarian Budaya</h3>
             <p>
-              Keeping the beauty of Javanese script alive for future
-              generations.
+              Menjaga keindahan Aksara Jawa agar tetap hidup untuk
+              generasi mendatang. 
             </p>
           </div>
 
           <div className="value-card">
-            <h3>Innovation</h3>
+            <h3>Inovasi</h3>
             <p>
-              Combining technology and education to create meaningful
-              learning experiences.
+              Menggabungkan teknologi dan pendidikan untuk menciptakan pengalaman belajar yang bermakna.
             </p>
           </div>
 
           <div className="value-card">
-            <h3>Accessibility</h3>
+            <h3>Aksesibilitas</h3>
             <p>
-              Making Aksara Jawa learning easy and available to everyone.
+              Membuat pembelajaran Aksara Jawa mudah dan dapat diaksses oleh siapa saja, di mana saja.
             </p>
           </div>
         </div>
       </section>
 
-      {/* FOOTER */}
       <footer className="footer">
         <p>© 2026 NAYAAKSARA. Preserving Javanese Script Heritage.</p>
       </footer>

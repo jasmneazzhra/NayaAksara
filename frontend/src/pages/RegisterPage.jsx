@@ -4,67 +4,65 @@ import { Link } from 'react-router-dom';
 function RegisterPage() {
   return (
     <div className="register-container">
-      {/* LEFT SIDE */}
       <div className="register-left">
         <div className="branding">
           <h1>NAYAAKSARA</h1>
 
           <div className="line"></div>
 
-          <p>Begin your journey with us</p>
+          <p>Mulai perjalanan Anda bersama kami</p>
         </div>
       </div>
 
-      {/* RIGHT SIDE */}
       <div className="register-right">
         <div className="register-card">
-          <h2>Create Account</h2>
-          <p className="subtitle">Join us today</p>
+          <h2>Buat Akun</h2>
+          <p className="subtitle">Bergabunglah dengan kami hari ini</p>
 
           <form>
             <div className="form-group">
-              <label>Full Name</label>
-              <input type="text" placeholder="Enter your full name" />
+              <label>Nama Lengkap</label>
+              <input type="text" placeholder="Masukkan nama lengkap Anda" />
             </div>
 
             <div className="form-group">
-              <label>Email Address</label>
-              <input type="email" placeholder="Enter your email" />
+              <label>Alamat Email</label>
+              <input type="email" placeholder="Masukkan email Anda" />
             </div>
 
             <div className="form-group">
               <label>Password</label>
 
               <div className="password-input">
-                <input type="password" placeholder="Create a password" />
+                <input type="password" placeholder="Buat kata sandi" />
                 <span>👁️</span>
               </div>
             </div>
 
             <div className="form-group">
-              <label>Confirm Password</label>
+              <label>Konfirmasi Password</label>
 
               <div className="password-input">
-                <input type="password" placeholder="Confirm your password" />
+                <input type="password" placeholder="Konfirmasi kata sandi Anda" />
                 <span>👁️</span>
               </div>
             </div>
 
             <div className="terms">
               <label>
-                <input type="checkbox" />I agree to the Terms of Service and
-                Privacy Policy
+                <input type="checkbox" />Saya setuju dengan Syarat Layanan dan
+                Kebijakan Privasi
               </label>
             </div>
 
             <Link to="/login" className="register-btn">
-                CREATE ACCOUNT
+                BUAT AKUN
             </Link>
           </form>
 
           <div className="divider">
             <span></span>
-            <p>Or sign up with</p>
+            <p>Atau daftar dengan</p>
             <span></span>
           </div>
 
@@ -74,7 +72,7 @@ function RegisterPage() {
           </div>
 
           <p className="login-text">
-            Already have an account? <a href="#">Sign In</a>
+            Sudah punya akun? <Link to="/login">Masuk</Link>
           </p>
         </div>
 

@@ -4,102 +4,91 @@ import "./../style/HomePage.css";
 function HomePage() {
   return (
     <div className="home-page">
-      {/* NAVBAR */}
       <header className="navbar">
         <div className="logo">
           <h1>NayaAksara</h1>
         </div>
 
         <nav className="nav-links">
-          <a href="#" className="active">
-            Home
-          </a>
-
-          <a href="#">Upload</a>
-          <a href="#">How It Works</a>
-          <a href="#">About</a>
+          <Link to="/" className="active">Beranda</Link>
+          <Link to="/upload">Unggah</Link>
+          <Link to="/how-it-works">Cara Kerja</Link>
+          <Link to="/about">Tentang</Link>
         </nav>
-      </header>
+  </header>
 
-      {/* HERO SECTION */}
       <section className="hero-section">
         <div className="hero-content">
-          <h1>Master the Art of Aksara Jawa</h1>
+          <h1>Kuasi Seni Aksara Jawa</h1>
 
           <p>
-            Upload your Javanese script handwriting and receive instant,
-            detailed assessments to improve your skills
+            Unggah tulisan tangan Aksara JAwa dan dapatkan penilaian instan
+            yang detail untuk meningkatkan keterampilan menulis Anda.
           </p>
 
           <div className="hero-buttons">
             <Link to="/login" className="get-started-btn">
-              Get Started
+              Mulai Sekarang
             </Link>
 
-            <button className="learn-more-btn">Learn More</button>
+            <button className="learn-more-btn">Pelajari Lebih Lanjut</button>
           </div>
         </div>
       </section>
 
-      {/* FEATURES SECTION */}
       <section className="features-section">
-        <h2>Why Choose NayaAksara?</h2>
+        <h2>Kenapa memilih NayaAksara</h2>
 
         <div className="features-grid">
-          {/* CARD 1 */}
           <div className="feature-card">
             <div className="feature-icon">↥</div>
 
-            <h3>Easy Upload</h3>
+            <h3>Unggah dengan mudah</h3>
 
             <p>
-              Simply upload a photo of your handwriting and let our system do
-              the rest
+              Cukup unggah foto tulisan tangan Aksara Jawa Anda dan biarkan sistem kami yang bekerja. 
             </p>
           </div>
 
-          {/* CARD 2 */}
           <div className="feature-card">
             <div className="feature-icon">⚬</div>
 
-            <h3>Accurate Scoring</h3>
+            <h3>Penilaian Akurat</h3>
 
             <p>
-              Advanced assessment algorithms provide precise evaluation of your
-              writing
+              Algoritma penilaian canggih menyediakan evaluasi yang tepat terhadap
+              tulisan Anda
             </p>
           </div>
 
-          {/* CARD 3 */}
           <div className="feature-card">
             <div className="feature-icon">📖</div>
 
-            <h3>Detailed Feedback</h3>
+            <h3>Feedback Detail</h3>
 
             <p>
-              Receive comprehensive insights on your strengths and areas for
-              improvement
+              Dapatkan wawasan lengkap tentang kelebihan dan area yang perlu
+              ditingkatkan untuk menguasai Aksara Jawa
             </p>
           </div>
 
-          {/* CARD 4 */}
           <div className="feature-card">
             <div className="feature-icon">↗</div>
 
-            <h3>Track Progress</h3>
+            <h3>Melacak Progres </h3>
 
-            <p>Monitor your improvement over time with detailed analytics</p>
+            <p>Pantau perkembangan Anda seiring waktu dengan analisis detail</p>
           </div>
         </div>
       </section>
-            {/* CTA SECTION */}
+
       <section className="cta-section">
         <div className="cta-content">
-          <h2>Ready To Improve Your Aksara Jawa Writing?</h2>
+          <h2>Siap Meningkatkan Tulisan Aksara Jawa Anda?</h2>
 
           <p>
-            Join thousands of learners preserving and mastering
-            the beautiful Javanese script
+            Bergabunglah dengan ribuan pembelajar yang melestarikan dan menguasai
+            keindahan Aksara Jawa
           </p>
 
           <Link to="/login" className="cta-btn">
@@ -108,30 +97,26 @@ function HomePage() {
         </div>
       </section>
 
-      {/* STATS SECTION */}
       <section className="stats-section">
         <div className="stats-grid">
-          {/* ITEM 1 */}
+
           <div className="stat-item">
             <h3>10,000+</h3>
-            <p>Assessments Completed</p>
+            <p>Penilaian Selesai</p>
           </div>
 
-          {/* ITEM 2 */}
           <div className="stat-item">
             <h3>95%</h3>
-            <p>Accuracy Rate</p>
+            <p>Rate Akurasi</p>
           </div>
 
-          {/* ITEM 3 */}
           <div className="stat-item">
             <h3>5,000+</h3>
-            <p>Active Learners</p>
+            <p>Pengguna Aktif</p>
           </div>
         </div>
       </section>
 
-      {/* FOOTER */}
       <footer className="footer">
         <p>
           © 2026 NAYAAKSARA. Preserving Javanese Script Heritage.

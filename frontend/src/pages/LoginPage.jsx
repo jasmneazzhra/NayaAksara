@@ -4,26 +4,24 @@ import { Link } from 'react-router-dom';
 function LoginPage() {
   return (
     <div className="login-container">
-      {/* LEFT SIDE */}
       <div className="login-left">
         <div className="branding">
           <h1>NAYAAKSARA</h1>
 
           <div className="line"></div>
 
-          <p>Where tradition meets innovation</p>
+          <p>Tempat Tradisi Bertemu Inovasi</p>
         </div>
       </div>
 
-      {/* RIGHT SIDE */}
       <div className="login-right">
         <div className="login-card">
-          <h2>Welcome Back</h2>
-          <p className="subtitle">Sign in to your account</p>
+          <h2>Selamat Datang Kembali</h2>
+          <p className="subtitle">Masuk ke akun Anda</p>
 
           <form>
             <div className="form-group">
-              <label>Email Address</label>
+              <label>Alamat Email</label>
               <input type="email" placeholder="Enter your email" />
             </div>
 
@@ -31,7 +29,7 @@ function LoginPage() {
               <label>Password</label>
 
               <div className="password-input">
-                <input type="password" placeholder="Enter your password" />
+                <input type="password" placeholder="Masukkan kata sandi Anda" />
                 <span>👁️</span>
               </div>
             </div>
@@ -39,20 +37,20 @@ function LoginPage() {
             <div className="options">
               <label>
                 <input type="checkbox" />
-                Remember me
+                Ingat saya
               </label>
 
-              <a href="#">Forgot Password?</a>
+              <a href="#">Lupa Kata Sandi?</a>
             </div>
 
             <Link to="/" className="signin-btn">
-              SIGN IN
+              MASUK
             </Link>
           </form>
 
           <div className="divider">
             <span></span>
-            <p>Or continue with</p>
+            <p>Atau lanjutkan dengan</p>
             <span></span>
           </div>
 
@@ -62,7 +60,7 @@ function LoginPage() {
           </div>
 
           <p className="signup-text">
-            Don’t have an account? <Link to="/register">Sign Up</Link>
+            Belum punya akun? <Link to="/register">Daftar</Link>
           </p>
         </div>
 

@@ -20,8 +20,6 @@ body,
   display: flex;
 }
 
-/* LEFT SIDE */
-
 .register-left {
   flex: 1;
   background: linear-gradient(to right, #5C3B2E, #6B4332);
@@ -39,36 +37,34 @@ body,
   font-family: "Cinzel", serif;
   font-size: 72px;
   font-weight: 500;
-  letter-spacing: 5px;
+  letter-spacing: 3px;
   color: #D4AF37;
+  line-height: 1.1;
 }
 
 .line {
   width: 90px;
   height: 2px;
   background-color: #D4AF37;
-  margin: 30px auto;
+  margin: 22px auto;
 }
 
 .branding p {
   font-family: "Cinzel", serif;
   font-size: 20px;
   color: #F5E6CA;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
+  line-height: 1.6;
 }
-
-/* RIGHT SIDE */
 
 .register-right {
   flex: 1;
   background-color: #F5EEDC;
   display: flex;
   flex-direction: column;
-
   justify-content: flex-start;
   align-items: center;
-
   padding: 40px 30px;
   overflow-y: auto;
 }
@@ -76,15 +72,13 @@ body,
 .register-card {
   width: 100%;
   max-width: 430px;
-  margin-top: 20px;
-
+  margin-top: 0px;
   background-color: #FFFFFF;
   border: 1px solid #D4AF37;
   border-radius: 12px;
-
   padding: 35px;
-
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  line-height: 1.5px;
 }
 
 .register-card h2 {
@@ -92,26 +86,26 @@ body,
   font-family: "Cinzel", serif;
   font-size: 34px;
   color: #5C3B2E;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
+  line-height: 1.2;
 }
 
 .subtitle {
   text-align: center;
   color: #8A7A6B;
-  margin-bottom: 35px;
+  margin-bottom: 28px;
   font-size: 14px;
   text-transform: uppercase;
+  line-height: 1.5;
 }
 
-/* FORM */
-
 .form-group {
-  margin-bottom: 22px;
+  margin-bottom: 18px;
 }
 
 .form-group label {
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
   color: #5C3B2E;
   font-size: 14px;
   font-weight: 500;
@@ -120,13 +114,14 @@ body,
 
 .form-group input {
   width: 100%;
-  padding: 14px;
+  padding: 13px 14px;
   border: 1px solid #D4AF37;
   outline: none;
   border-radius: 5px;
   font-size: 14px;
   background-color: transparent;
   color: #1E1E1E;
+  line-height: 1.5;
 }
 
 .form-group input::placeholder {
@@ -145,10 +140,8 @@ body,
   cursor: pointer;
 }
 
-/* TERMS */
-
 .terms {
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .terms label {
@@ -158,10 +151,8 @@ body,
 
   color: #5C3B2E;
   font-size: 13px;
-  line-height: 1.5;
+  line-height: 1.4;
 }
-
-/* BUTTON */
 
 .register-btn {
   width: 100%;
@@ -181,13 +172,11 @@ body,
   background-color: #4A2F24;
 }
 
-/* DIVIDER */
-
 .divider {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin: 30px 0;
+  margin: 24px 0;
 }
 
 .divider span {
@@ -201,8 +190,6 @@ body,
   color: #7A5A45;
   text-transform: uppercase;
 }
-
-/* SOCIAL BUTTONS */
 
 .social-buttons {
   display: flex;
@@ -224,13 +211,12 @@ body,
   background-color: #F5E6CA;
 }
 
-/* LOGIN TEXT */
-
 .login-text {
-  margin-top: 28px;
+  margin-top: 22px;
   text-align: center;
   font-size: 14px;
   color: #5C3B2E;
+  line-height: 1.5;
 }
 
 .login-text a {
@@ -239,15 +225,12 @@ body,
   font-weight: 500;
 }
 
-/* COPYRIGHT */
-
 .copyright {
-  margin-top: 25px;
+  margin-top: 18px;
   font-size: 12px;
   color: #9B8A78;
+  line-height: 1.5;
 }
-
-/* RESPONSIVE */
 
 @media screen and (max-width: 900px) {
   .register-left {
