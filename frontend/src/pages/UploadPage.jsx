@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import { useState, useRef } from "react";
 import "./../style/UploadPage.css";
+import { useNavigate } from "react-router-dom";
 
 function UploadPage() {
   const [file, setFile] = useState(null);
   const inputRef = useRef(null);
+
+  const navigate = useNavigate();
 
   // handle file dari input / drop
   const handleFile = (selectedFile) => {
@@ -90,6 +93,13 @@ function UploadPage() {
             {file && (
               <div style={{ marginTop: "10px" }}>
                 <p>📄 {file.name}</p>
+
+                <button
+                  type="button"
+                  onClick={() => navigate("/scoring", { state: { file } })}
+                >
+                  Nilai Sekarang
+                </button>
               </div>
             )}
           </div>

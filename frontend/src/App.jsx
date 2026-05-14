@@ -5,6 +5,8 @@ import RegisterPage from './pages/RegisterPage';
 import UploadPage from './pages/UploadPage';
 import HowItWorks from "./pages/HowItWorks";
 import AboutPage from "./pages/AboutPage";
+import ScoringPage from './pages/ScoringPage';
+import TriviaPage from "./pages/TriviaPage"; 
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
       <Route path="/upload" element={<UploadPage />} />
       <Route path="/how-it-works" element={<HowItWorks />} />
       <Route path="/about" element={<AboutPage />} />
+      <Route path="/scoring" element={<ScoringPage />} />
+      <Route path="/trivia" element={<TriviaPage />} />
     </Routes>
   );
 }
