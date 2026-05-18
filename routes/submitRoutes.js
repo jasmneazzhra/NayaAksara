@@ -34,19 +34,27 @@ const upload = multer({
 
 router.post("/", upload.single("image"), (req, res) => {
     console.log(req.file);
+
+    if (!req.file) {
+        return res.status(400).json({
+            status: "error",
+            message: "File tidak ditemukan",
+        });
+    }
+
     const randomNumber = Math.floor(Math.random() * 10);
 
     if (randomNumber > 3) {
         const sql = `
-      SELECT * FROM trivia_pool
-      ORDER BY RAND()
-      LIMIT 1
-    `;
+            SELECT * FROM trivia_pool
+            ORDER BY RAND()
+            LIMIT 1
+        `;
 
         db.query(sql, (err, result) => {
             if (err) {
                 return res.status(500).json({
-                    success: false,
+                    status: "error",
                     message: "Database error",
                 });
             }
@@ -60,21 +68,25 @@ router.post("/", upload.single("image"), (req, res) => {
 
             db.query(insertSql, [imagePath, "ha", 0.92, true]);
 
-            res.json({
-                success: true,
-                prediction: "ha",
-                confidence: 0.92,
-                is_valid: true,
-                trivia: result[0],
+            return res.json({
+                status: "success",
+                data: {
+                    prediction: "ha",
+                    confidence: 0.92,
+                    is_valid: true,
+                    trivia: result[0],
+                },
             });
         });
     } else {
-        res.json({
-            success: false,
-            prediction: "unknown",
-            confidence: 0.3,
-            is_valid: false,
-            message: "Tulisan kurang jelas",
+        return res.json({
+            status: "success",
+            data: {
+                prediction: "unknown",
+                confidence: 0.3,
+                is_valid: false,
+                message: "Tulisan kurang jelas",
+            },
         });
     }
 });
