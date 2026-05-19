@@ -2,12 +2,34 @@ import { Link } from "react-router-dom";
 import { useState, useRef } from "react";
 import "./../style/UploadPage.css";
 import { useNavigate } from "react-router-dom";
+import { submitQuestImage } from "../services/api"; // Backend submit image
 
 function UploadPage() {
   const [file, setFile] = useState(null);
   const inputRef = useRef(null);
 
   const navigate = useNavigate();
+
+  // Backend submit image
+  const handleSubmit = async () => {
+    if (!file) return;
+
+    try {
+      const result = await submitQuestImage(file);
+
+      console.log("HASIL BACKEND:", result);
+
+      navigate("/scoring", {
+        state: {
+          file,
+          result,
+        },
+      });
+    } catch (error) {
+      console.error(error);
+      alert("Upload gagal");
+    }
+  };
 
   // handle file dari input / drop
   const handleFile = (selectedFile) => {
@@ -42,7 +64,9 @@ function UploadPage() {
         </div>
 
         <nav className="nav-links">
-          <Link to="/" className="active">Beranda</Link>
+          <Link to="/" className="active">
+            Beranda
+          </Link>
           <Link to="/upload">Unggah</Link>
           <Link to="/how-it-works">Cara Kerja</Link>
           <Link to="/about">Tentang</Link>
@@ -60,7 +84,8 @@ function UploadPage() {
 
           <p>
             Ambil foto atau scan tulisan tangan Aksara Jawa Anda dengan jelas.
-            Sistem kami akan menganalisis tulisan Anda dan memberikan skor penilaian yang detail.
+            Sistem kami akan menganalisis tulisan Anda dan memberikan skor
+            penilaian yang detail.
           </p>
 
           {/* INPUT HIDDEN */}
@@ -96,7 +121,8 @@ function UploadPage() {
 
                 <button
                   type="button"
-                  onClick={() => navigate("/scoring", { state: { file } })}
+                  // onClick={() => navigate("/scoring", { state: { file } })}
+                  onClick={handleSubmit} //  backend submit image
                 >
                   Nilai Sekarang
                 </button>
@@ -107,7 +133,10 @@ function UploadPage() {
           <div className="upload-features">
             <div className="upload-card">
               <h3>Gambar yang Jelas</h3>
-              <p>Pastikan tulisan Anda terang dan fokus untuk penilaian yang akurat</p>
+              <p>
+                Pastikan tulisan Anda terang dan fokus untuk penilaian yang
+                akurat
+              </p>
             </div>
 
             <div className="upload-card">
