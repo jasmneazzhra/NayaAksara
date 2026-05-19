@@ -1,8 +1,10 @@
 const express = require("express");
 require("./config/db");
+const cors = require("cors");
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 
 const questRoutes = require("./routes/questRoutes");
