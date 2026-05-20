@@ -64,8 +64,13 @@ function ScoringPage() {
               <p>{result?.data?.message}</p>
             </div>
 
-            <p className="score-label">
+            {/* <p className="score-label">
               Tulisan Anda sangat baik dan cukup mudah dikenali AI.
+            </p> */}
+            <p className="score-label">
+              {result?.data?.is_valid
+                ? "Tulisan dikenali sistem dengan baik."
+                : result?.data?.message}
             </p>
           </div>
         </div>
@@ -75,30 +80,49 @@ function ScoringPage() {
             <h3>Kejelasan Tulisan</h3>
 
             <div className="progress-bar">
-              <div className="progress-fill" style={{ width: "90%" }}></div>
+              <div
+                className="progress-fill"
+                style={{
+                  width: `${score}%`,
+                  backgroundColor: score > 70 ? "#4caf50" : "#f44336",
+                  transition: "width 0.5s ease-in-out",
+                }}
+              ></div>
             </div>
 
-            <span>90%</span>
+            <span style={{ fontWeight: "bold" }}>{score}%</span>
           </div>
-
           <div className="detail-card">
             <h3>Kerapihan Karakter</h3>
 
             <div className="progress-bar">
-              <div className="progress-fill" style={{ width: "82%" }}></div>
+              <div
+                className="progress-fill"
+                style={{
+                  width: `${score}%`,
+                  backgroundColor: score > 70 ? "#4caf50" : "#f44336",
+                  transition: "width 0.5s ease-in-out",
+                }}
+              ></div>
             </div>
 
-            <span>82%</span>
+            <span style={{ fontWeight: "bold" }}>{score}%</span>
           </div>
-
           <div className="detail-card">
             <h3>Kesesuaian Bentuk</h3>
 
             <div className="progress-bar">
-              <div className="progress-fill" style={{ width: "88%" }}></div>
+              <div
+                className="progress-fill"
+                style={{
+                  width: `${score}%`,
+                  backgroundColor: score > 70 ? "#4caf50" : "#f44336",
+                  transition: "width 0.5s ease-in-out",
+                }}
+              ></div>
             </div>
 
-            <span>88%</span>
+            <span style={{ fontWeight: "bold" }}>{score}%</span>
           </div>
         </div>
 
