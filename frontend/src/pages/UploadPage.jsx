@@ -102,7 +102,6 @@ function UploadPage() {
             className="upload-box"
             onDrop={handleDrop}
             onDragOver={handleDragOver}
-            onClick={handleClick}
             style={{ cursor: "pointer" }}
           >
             <div className="upload-icon">↥</div>
@@ -110,7 +109,9 @@ function UploadPage() {
             <h3>Seret & Lepas Gambar Anda di Sini</h3>
             <span>ATAU KLIK UNTUK MENCARI</span>
 
-            <button type="button">Pilih File</button>
+            <button type="button" onClick={handleClick}>
+              Pilih File
+            </button>
 
             <small>FORMAT YANG DIDUKUNG: JPG, PNG, HEIC</small>
 

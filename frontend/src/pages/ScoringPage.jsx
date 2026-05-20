@@ -102,14 +102,19 @@ function ScoringPage() {
           </div>
         </div>
 
-        <div className="feedback-card">
-          <h2>Feedback AI</h2>
-
-          <p>
-            Bentuk aksara sudah cukup konsisten dan mudah dikenali. Beberapa
-            karakter masih terlihat kurang simetris, namun secara keseluruhan
-            tulisan sangat baik.
+        <div
+          className="feedback-card"
+          style={{
+            marginTop: "20px",
+            border: "1px solid #ddd",
+            padding: "15px",
+          }}
+        >
+          <h2>Trivia Aksara</h2>
+          <p style={{ fontSize: "1.2rem", fontWeight: "bold" }}>
+            {result?.data?.trivia?.aksara?.toUpperCase()}
           </p>
+          <p>{result?.data?.trivia?.content}</p>
         </div>
 
         <div className="button-wrapper">
