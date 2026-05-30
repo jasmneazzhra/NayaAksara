@@ -1,6 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const multer = require("multer");
+const AI_URL =
+  "https://unwoven-arena-recount.ngrok-free.dev/predict";
+const axios = require("axios");
+const FormData = require("form-data");
+const fs = require("fs");
 
 const db = require("../config/db");
 
@@ -41,6 +46,10 @@ router.post("/", upload.single("image"), (req, res) => {
             message: "File tidak ditemukan",
         });
     }
+
+    // =====================================
+    // TEMPORARY MOCK AI
+    // NANTI DIGANTI DENGAN AI ENDPOINT
 
     const randomNumber = Math.floor(Math.random() * 10);
 
@@ -89,6 +98,7 @@ router.post("/", upload.single("image"), (req, res) => {
             },
         });
     }
+    // =====================================
 });
 
 module.exports = router;
