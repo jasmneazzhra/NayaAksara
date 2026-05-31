@@ -1,13 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const multer = require("multer");
-const AI_URL =
-  "https://unwoven-arena-recount.ngrok-free.dev/predict";
-const axios = require("axios");
-const FormData = require("form-data");
-const fs = require("fs");
 
 const db = require("../config/db");
+const { predictImage } = require("../services/aiService");
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -37,7 +33,8 @@ const upload = multer({
     },
 });
 
-router.post("/", upload.single("image"), (req, res) => {
+// router.post("/", upload.single("image"), (req, res) => {
+    router.post("/", upload.single("image"), async (req, res) => {
     console.log(req.file);
 
     if (!req.file) {
@@ -51,54 +48,142 @@ router.post("/", upload.single("image"), (req, res) => {
     // TEMPORARY MOCK AI
     // NANTI DIGANTI DENGAN AI ENDPOINT
 
-    const randomNumber = Math.floor(Math.random() * 10);
+    // const randomNumber = Math.floor(Math.random() * 10);
 
-    if (randomNumber > 3) {
-        const sql = `
-            SELECT * FROM trivia_pool
-            ORDER BY RAND()
-            LIMIT 1
-        `;
+    // if (randomNumber > 3) {
+    //     const sql = `
+    //         SELECT * FROM trivia_pool
+    //         ORDER BY RAND()
+    //         LIMIT 1
+    //     `;
 
-        db.query(sql, (err, result) => {
-            if (err) {
-                return res.status(500).json({
-                    status: "error",
-                    message: "Database error",
-                });
-            }
+    //     db.query(sql, (err, result) => {
+    //         if (err) {
+    //             return res.status(500).json({
+    //                 status: "error",
+    //                 message: "Database error",
+    //             });
+    //         }
 
-            const imagePath = req.file.path;
+    //         const imagePath = req.file.path;
 
-            const insertSql = `
-                INSERT INTO submissions (image_path, prediction, confidence, is_valid)
-                VALUES (?, ?, ?, ?)
-            `;
+    //         const insertSql = `
+    //             INSERT INTO submissions (image_path, prediction, confidence, is_valid)
+    //             VALUES (?, ?, ?, ?)
+    //         `;
 
-            db.query(insertSql, [imagePath, "ha", 0.92, true]);
+    //         db.query(insertSql, [imagePath, "ha", 0.92, true]);
 
-            return res.json({
-                status: "success",
-                data: {
-                    prediction: "ha",
-                    confidence: 0.92,
-                    is_valid: true,
-                    trivia: result[0],
-                },
-            });
-        });
-    } else {
+    //         return res.json({
+    //             status: "success",
+    //             data: {
+    //                 prediction: "ha",
+    //                 confidence: 0.92,
+    //                 is_valid: true,
+    //                 trivia: result[0],
+    //             },
+    //         });
+    //     });
+    // } else {
+    //     return res.json({
+    //         status: "success",
+    //         data: {
+    //             prediction: "unknown",
+    //             confidence: 0.3,
+    //             is_valid: false,
+    //             message: "Tulisan kurang jelas",
+    //         },
+    //     });
+    // }
+    // =====================================
+
+    try {
+
+    const aiResult =
+        await predictImage(req.file.path);
+
+    console.log("AI RESULT:", aiResult);
+
+    const prediction =
+        aiResult.prediction;
+
+    const confidence =
+        aiResult.confidence;
+
+    const isValid =
+        confidence >= 0.05;
+
+    if (!isValid) {
         return res.json({
             status: "success",
             data: {
-                prediction: "unknown",
-                confidence: 0.3,
+                prediction,
+                confidence,
                 is_valid: false,
                 message: "Tulisan kurang jelas",
             },
         });
     }
-    // =====================================
+
+    const sql = `
+        SELECT *
+        FROM trivia_pool
+        ORDER BY RAND()
+        LIMIT 1
+    `;
+
+    db.query(sql, (err, result) => {
+
+        if (err) {
+            return res.status(500).json({
+                status: "error",
+                message: "Database error",
+            });
+        }
+
+        const insertSql = `
+            INSERT INTO submissions
+            (
+                image_path,
+                prediction,
+                confidence,
+                is_valid
+            )
+            VALUES (?, ?, ?, ?)
+        `;
+
+        db.query(
+            insertSql,
+            [
+                req.file.path,
+                prediction,
+                confidence,
+                true
+            ]
+        );
+
+        return res.json({
+            status: "success",
+            data: {
+                prediction,
+                confidence,
+                is_valid: true,
+                trivia: result[0],
+            },
+        });
+    });
+
+} catch (error) {
+
+    console.error(error);
+
+    return res.status(500).json({
+        status: "error",
+        message: "AI service error",
+        error: error.message,
+    });
+
+}
 });
 
 module.exports = router;
