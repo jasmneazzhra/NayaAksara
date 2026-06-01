@@ -110,8 +110,10 @@ const upload = multer({
     const confidence =
         aiResult.confidence;
 
-    const isValid =
-        confidence >= 0.05;
+    const MIN_CONFIDENCE = 0.60;
+
+const isValid =
+    confidence >= MIN_CONFIDENCE;
 
     if (!isValid) {
         return res.json({
