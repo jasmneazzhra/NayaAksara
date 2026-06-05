@@ -17,7 +17,6 @@ function UploadPage() {
     try {
       const result = await submitQuestImage(file);
 
-      console.log("HASIL BACKEND:", result);
 
       navigate("/scoring", {
         state: {
