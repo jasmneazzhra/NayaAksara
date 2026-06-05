@@ -39,9 +39,7 @@ router.post("/", upload.single("image"), async (req, res) => {
   }
 
   try {
-    const aiResult = await predictImage(req.file.buffer, req.file.originalname);
-
-    console.log("AI RESULT:", aiResult);
+    const aiResult = await predictImage(req.file.buffer, req.file.originalname, req.file.mimetype);
 
     const prediction = aiResult.prediction;
 
