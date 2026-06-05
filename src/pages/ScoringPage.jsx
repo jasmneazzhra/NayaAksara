@@ -59,70 +59,54 @@ function ScoringPage() {
 
             <div className="score-circle">
               <span>{score}</span>
-              <p>Prediction: {result?.data?.prediction}</p>
-              <p>Status: {result?.data?.is_valid ? "Benar" : "Salah"}</p>
+              <p>
+                <strong>Aksara:</strong>{" "}
+                {result?.data?.prediction?.toUpperCase()}
+              </p>
+              <p>
+                <strong>Confidence:</strong> {score}%
+              </p>
+
+              <p>
+                <strong>Status:</strong>{" "}
+                {result?.data?.is_valid ? "Valid" : "Tidak Valid"}
+              </p>
               <p>{result?.data?.message}</p>
             </div>
 
-            {/* <p className="score-label">
-              Tulisan Anda sangat baik dan cukup mudah dikenali AI.
-            </p> */}
             <p className="score-label">
               {result?.data?.is_valid
-                ? "Tulisan dikenali sistem dengan baik."
-                : result?.data?.message}
+                ? "Model AI berhasil mengenali aksara yang diunggah."
+                : "Model AI tidak cukup yakin terhadap gambar yang diunggah."}
             </p>
           </div>
         </div>
 
         <div className="detail-section">
           <div className="detail-card">
-            <h3>Kejelasan Tulisan</h3>
+            <h3>Confidence Score</h3>
 
             <div className="progress-bar">
               <div
                 className="progress-fill"
                 style={{
                   width: `${score}%`,
-                  backgroundColor: score > 70 ? "#4caf50" : "#f44336",
+                  backgroundColor: score >= 60 ? "#4caf50" : "#f44336",
                   transition: "width 0.5s ease-in-out",
                 }}
               ></div>
             </div>
 
             <span style={{ fontWeight: "bold" }}>{score}%</span>
-          </div>
-          <div className="detail-card">
-            <h3>Kerapihan Karakter</h3>
 
-            <div className="progress-bar">
-              <div
-                className="progress-fill"
-                style={{
-                  width: `${score}%`,
-                  backgroundColor: score > 70 ? "#4caf50" : "#f44336",
-                  transition: "width 0.5s ease-in-out",
-                }}
-              ></div>
-            </div>
-
-            <span style={{ fontWeight: "bold" }}>{score}%</span>
-          </div>
-          <div className="detail-card">
-            <h3>Kesesuaian Bentuk</h3>
-
-            <div className="progress-bar">
-              <div
-                className="progress-fill"
-                style={{
-                  width: `${score}%`,
-                  backgroundColor: score > 70 ? "#4caf50" : "#f44336",
-                  transition: "width 0.5s ease-in-out",
-                }}
-              ></div>
-            </div>
-
-            <span style={{ fontWeight: "bold" }}>{score}%</span>
+            <p
+              style={{
+                marginTop: "10px",
+                color: "#666",
+              }}
+            >
+              Tingkat keyakinan model AI terhadap hasil prediksi.
+            </p>
           </div>
         </div>
 
