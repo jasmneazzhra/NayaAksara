@@ -27,11 +27,11 @@ function HomePage() {
           </p>
 
           <div className="hero-buttons">
-            <Link to="/login" className="get-started-btn">
+            <Link to="/upload" className="get-started-btn">
               Mulai Sekarang
             </Link>
 
-            <button className="learn-more-btn">Pelajari Lebih Lanjut</button>
+            <Link to="/how-it-works" className="learn-more-btn">Pelajari Lebih Lanjut</Link>
           </div>
         </div>
       </section>
@@ -91,8 +91,8 @@ function HomePage() {
             keindahan Aksara Jawa
           </p>
 
-          <Link to="/login" className="cta-btn">
-            Start Your Assessment
+          <Link to="/upload" className="cta-btn">
+            Mulai Penilaian Anda
           </Link>
         </div>
       </section>

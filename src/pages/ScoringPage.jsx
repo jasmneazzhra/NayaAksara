@@ -34,104 +34,89 @@ function ScoringPage() {
       </header>
 
       <section className="scoring-header">
-        <h1>Hasil Penilaian</h1>
-        <p>Analisis AI terhadap tulisan Aksara Jawa Anda</p>
+        <h1>Hasil Penilaian Anda</h1>
+        <p>Bagus sekali! Kami telah selesai menganalisis tulisan Aksara Jawa yang Anda unggah.</p>
       </section>
 
       <section className="scoring-section">
-        <div className="scoring-container">
-          <div className="preview-card">
-            <h2>Gambar yang Diunggah</h2>
-
-            {uploadedFile ? (
-              <img
-                src={URL.createObjectURL(uploadedFile)}
-                alt="Uploaded"
-                className="preview-image"
-              />
-            ) : (
-              <div className="no-image">Tidak ada gambar</div>
-            )}
-          </div>
-
-          <div className="score-card">
-            <h2>Skor AI</h2>
-
-            <div className="score-circle">
-              <span>{score}</span>
-              <p>
-                <strong>Aksara:</strong>{" "}
-                {result?.data?.prediction?.toUpperCase()}
-              </p>
-              <p>
-                <strong>Confidence:</strong> {score}%
-              </p>
-
-              <p>
-                <strong>Status:</strong>{" "}
-                {result?.data?.is_valid ? "Valid" : "Tidak Valid"}
-              </p>
-              <p>{result?.data?.message}</p>
+        <div className="scoring-main-container">
+          {/* Main Score Centerpiece */}
+          <div className="score-hero-card">
+            <div className="score-hero-header">
+              <h2>Akurasi Penulisan</h2>
+              <span className={`status-badge ${result?.data?.is_valid ? 'valid' : 'invalid'}`}>
+                {result?.data?.is_valid ? "✔ Dikenali AI" : "⚠ Kurang Jelas"}
+              </span>
             </div>
 
-            <p className="score-label">
-              {result?.data?.is_valid
-                ? "Model AI berhasil mengenali aksara yang diunggah."
-                : "Model AI tidak cukup yakin terhadap gambar yang diunggah."}
-            </p>
+            <div className="score-hero-content">
+              <div className="score-circle-large">
+                <span>{score}</span>
+                <p>Skor Keyakinan</p>
+              </div>
+              
+              <div className="score-hero-text">
+                <h3>Huruf Terdeteksi: <strong>{result?.data?.prediction?.toUpperCase() || "?"}</strong></h3>
+                <p className="score-label">
+                  {result?.data?.is_valid
+                    ? "Hebat! Model AI kami dapat mengenali aksara Anda dengan tingkat keyakinan yang baik. Terus pertahankan latihan menulis Anda!"
+                    : "Hmm, model AI kami kesulitan mengenali aksara ini dengan yakin. Cobalah menulis dengan garis yang lebih tegas atau periksa pencahayaan foto Anda."}
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
 
-        <div className="detail-section">
-          <div className="detail-card">
-            <h3>Confidence Score</h3>
-
-            <div className="progress-bar">
-              <div
-                className="progress-fill"
-                style={{
-                  width: `${score}%`,
-                  backgroundColor: score >= 60 ? "#4caf50" : "#f44336",
-                  transition: "width 0.5s ease-in-out",
-                }}
-              ></div>
+          <div className="scoring-grid">
+            {/* Image Preview */}
+            <div className="preview-card">
+              <h3>Gambar yang Anda Unggah</h3>
+              {uploadedFile ? (
+                <img
+                  src={URL.createObjectURL(uploadedFile)}
+                  alt="Uploaded"
+                  className="preview-image"
+                />
+              ) : (
+                <div className="no-image">Tidak ada gambar yang diunggah</div>
+              )}
             </div>
 
-            <span style={{ fontWeight: "bold" }}>{score}%</span>
+            {/* Analysis Details */}
+            <div className="detail-card">
+              <h3>Detail Analisis</h3>
+              <div className="analysis-item">
+                <div className="analysis-header">
+                  <span>Tingkat Keyakinan (Confidence)</span>
+                  <strong>{score}%</strong>
+                </div>
+                <div className="progress-bar">
+                  <div
+                    className="progress-fill"
+                    style={{
+                      width: `${score}%`,
+                      backgroundColor: score >= 80 ? "#4caf50" : score >= 50 ? "#ff9800" : "#f44336",
+                    }}
+                  ></div>
+                </div>
+                <p className="analysis-desc">
+                  Persentase seberapa yakin sistem bahwa tulisan Anda sesuai dengan bentuk standar aksara.
+                </p>
+              </div>
 
-            <p
-              style={{
-                marginTop: "10px",
-                color: "#666",
-              }}
-            >
-              Tingkat keyakinan model AI terhadap hasil prediksi.
-            </p>
+              <div className="trivia-mini-card">
+                <h4>Tahukah Kamu tentang {result?.data?.trivia?.aksara?.toUpperCase() || "?"}?</h4>
+                <p>{result?.data?.trivia?.content || "Aksara Jawa memiliki sejarah dan filosofi yang sangat dalam. Terus berlatih untuk melestarikannya!"}</p>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div
-          className="feedback-card"
-          style={{
-            marginTop: "20px",
-            border: "1px solid #ddd",
-            padding: "15px",
-          }}
-        >
-          <h2>Trivia Aksara</h2>
-          <p style={{ fontSize: "1.2rem", fontWeight: "bold" }}>
-            {result?.data?.trivia?.aksara?.toUpperCase()}
-          </p>
-          <p>{result?.data?.trivia?.content}</p>
         </div>
 
         <div className="button-wrapper">
-          <Link to="/upload">
-            <button className="upload-again-btn">Upload Lagi</button>
+          <Link to="/upload" className="upload-again-btn">
+            Unggah Tulisan Lain
           </Link>
-
-          <Link to="/trivia">
-            <button className="trivia-btn">Main Trivia</button>
+          <Link to="/trivia" className="trivia-btn">
+            Uji Pengetahuan (Trivia)
           </Link>
         </div>
       </section>

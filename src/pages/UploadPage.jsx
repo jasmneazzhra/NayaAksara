@@ -64,10 +64,10 @@ function UploadPage() {
         </div>
 
         <nav className="nav-links">
-          <Link to="/" className="active">
+          <Link to="/">
             Beranda
           </Link>
-          <Link to="/upload">Unggah</Link>
+          <Link to="/upload" className="active">Unggah</Link>
           <Link to="/how-it-works">Cara Kerja</Link>
           <Link to="/about">Tentang</Link>
         </nav>
@@ -109,7 +109,7 @@ function UploadPage() {
             <h3>Seret & Lepas Gambar Anda di Sini</h3>
             <span>ATAU KLIK UNTUK MENCARI</span>
 
-            <button type="button" onClick={handleClick}>
+            <button type="button" className="select-btn" onClick={handleClick}>
               Pilih File
             </button>
 
@@ -117,13 +117,13 @@ function UploadPage() {
 
             {/* PREVIEW */}
             {file && (
-              <div style={{ marginTop: "10px" }}>
-                <p>📄 {file.name}</p>
+              <div className="preview-container">
+                <p className="file-name">📄 {file.name}</p>
 
                 <button
                   type="button"
-                  // onClick={() => navigate("/scoring", { state: { file } })}
-                  onClick={handleSubmit} //  backend submit image
+                  className="submit-btn"
+                  onClick={handleSubmit}
                 >
                   Nilai Sekarang
                 </button>

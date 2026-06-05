@@ -235,7 +235,7 @@ function HowItWorksPage() {
           dan dapatkan umpan balik instan
         </p>
 
-        <Link to="/login" className="cta-btn">
+        <Link to="/upload" className="cta-btn">
           Mulai Penilaian
         </Link>
       </section>

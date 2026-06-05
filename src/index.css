@@ -1,3 +1,14 @@
+/* ===== GLOBAL DESIGN TOKENS & ANIMATIONS ===== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background-color: rgba(212, 175, 55, 0.3);
+  color: #5C3B2E;
+}
+
 :root {
   --text: #6b6375;
   --text-h: #08060d;
@@ -10,6 +21,20 @@
   --social-bg: rgba(244, 243, 236, 0.5);
   --shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+
+  /* Premium shadow tokens */
+  --shadow-sm: 0 2px 8px rgba(107, 67, 50, 0.06);
+  --shadow-md: 0 8px 25px rgba(107, 67, 50, 0.1);
+  --shadow-lg: 0 16px 40px rgba(107, 67, 50, 0.14);
+  --shadow-xl: 0 24px 56px rgba(107, 67, 50, 0.18);
+  --shadow-glow: 0 0 20px rgba(212, 175, 55, 0.15);
+
+  /* Transition tokens */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --transition-fast: 0.2s var(--ease-out-expo);
+  --transition-normal: 0.4s var(--ease-out-expo);
+  --transition-slow: 0.6s var(--ease-out-expo);
 
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
@@ -55,11 +80,10 @@ body {
 }
 
 #root {
-  width: 1126px;
+  width: 100%;
   max-width: 100%;
   margin: 0 auto;
   text-align: center;
-  border-inline: 1px solid var(--border);
   min-height: 100svh;
   display: flex;
   flex-direction: column;
@@ -108,4 +132,98 @@ code {
   line-height: 135%;
   padding: 4px 8px;
   background: var(--code-bg);
+}
+
+/* ===== GLOBAL KEYFRAME ANIMATIONS ===== */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.3); }
+  50% { box-shadow: 0 0 20px 6px rgba(212, 175, 55, 0.15); }
+}
+
+@keyframes marchingAnts {
+  to { stroke-dashoffset: -20; }
+}
+
+@keyframes progressFill {
+  from { width: 0%; }
+}
+
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes ringPulse {
+  0%, 100% { 
+    box-shadow: 0 0 0 0 rgba(200, 169, 107, 0.4);
+  }
+  50% { 
+    box-shadow: 0 0 0 12px rgba(200, 169, 107, 0);
+  }
 }
