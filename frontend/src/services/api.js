@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:3000/api'; // ganti ke https://0a01-202-57-27-91.ngrok-free.app/api kabarin nanti kalo mau test ngrok nya aku matiin
+const BASE_URL = import.meta.env.VITE_API_URL || '/api';
 
 
 export async function fetchData(endpoint) {
