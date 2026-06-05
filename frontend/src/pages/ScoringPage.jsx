@@ -16,7 +16,6 @@ function ScoringPage() {
     ? Math.round(result.data.confidence * 100)
     : 0;
 
-  console.log("DATA DARI BACKEND:", result);
 
   return (
     <div className="scoring-page">
