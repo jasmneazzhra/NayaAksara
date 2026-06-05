@@ -5,13 +5,12 @@ const fs = require("fs");
 const AI_URL =
 "https://ikchandra-nayaaksara.hf.space/predict"; //https://unwoven-arena-recount.ngrok-free.dev/predict punya harist
 
-async function predictImage(imagePath) {
+async function predictImage(imageBuffer, originalName) {
   const formData = new FormData();
 
-  formData.append(
-    "image",
-    fs.createReadStream(imagePath)
-  );
+  formData.append("image", imageBuffer, {
+    filename: originalName || "upload.jpg"
+  });
 
   const response = await axios.post(
     AI_URL,

@@ -17,9 +17,12 @@ app.get("/", (req, res) => {
     res.send("Backend NayaAksara jalan!");
 });
 
-app.listen(3000, () => {
-    console.log("Server jalan di port 3000");
-});
+// Hanya jalankan listener jika di local (bukan di Vercel serverless)
+if (process.env.NODE_ENV !== "production") {
+    app.listen(3000, () => {
+        console.log("Server jalan di port 3000");
+    });
+}
 
 app.use((err, req, res, next) => {
 
@@ -35,3 +38,5 @@ app.use((err, req, res, next) => {
     next();
 
 });
+
+module.exports = app;

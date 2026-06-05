@@ -6,15 +6,8 @@ const db = require("../config/db");
 const { predictImage } = require("../services/aiService");
 const triviaData = require("../data/trivia.json");
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "uploads/");
-  },
-
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + "-" + file.originalname);
-  },
-});
+// Use memoryStorage for Vercel Serverless compatibility
+const storage = multer.memoryStorage();
 
 const upload = multer({
   storage: storage,
@@ -46,7 +39,7 @@ router.post("/", upload.single("image"), async (req, res) => {
   }
 
   try {
-    const aiResult = await predictImage(req.file.path);
+    const aiResult = await predictImage(req.file.buffer, req.file.originalname);
 
     console.log("AI RESULT:", aiResult);
 
@@ -88,7 +81,7 @@ router.post("/", upload.single("image"), async (req, res) => {
             VALUES (?, ?, ?, ?)
         `;
 
-      db.query(insertSql, [req.file.path, prediction, confidence, true]);
+      db.query(insertSql, ["vercel_serverless_no_storage", prediction, confidence, true]);
 
       return res.json({
         status: "success",
