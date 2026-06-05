@@ -3,7 +3,7 @@ const FormData = require("form-data");
 const fs = require("fs");
 
 const AI_URL =
-  "https://unwoven-arena-recount.ngrok-free.dev/predict";
+"https://ikchandra-nayaaksara.hf.space/predict"; //https://unwoven-arena-recount.ngrok-free.dev/predict punya harist
 
 async function predictImage(imagePath) {
   const formData = new FormData();
