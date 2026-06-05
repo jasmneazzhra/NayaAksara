@@ -1,662 +1,268 @@
-# NAYAAKSARA - MASTER TECHNICAL HANDOVER DOCUMENT
+<div align="center">
+  <h1>📜 NayaAksara</h1>
+  <p><strong>AI-Powered Handwritten Javanese Script Recognition for Interactive Learning</strong></p>
+  <p><i>Accessible & Adaptive Learning</i></p>
+  
+  ---
+  
+  **Master Technical Handover Document**  
+  **Version:** 1.0 Final Capstone  
+  **Tanggal:** 5 Juni 2026
+</div>
 
-Version: 1.0 Final Capstone
-Tanggal: 5 Juni 2026
+## 📖 1. Project Overview
 
----
+**NayaAksara** bertujuan untuk membantu pengguna mempelajari dan melestarikan Aksara Jawa melalui sistem pembelajaran interaktif berbasis *Artificial Intelligence* yang mampu mengenali tulisan tangan pengguna secara otomatis.
 
-# 1. PROJECT OVERVIEW
+### 🛑 Latar Belakang & Masalah
+* Semakin menurunnya minat generasi muda dalam mempelajari Aksara Jawa.
+* Media pembelajaran saat ini masih terlalu dominan pada teori dan hafalan konvensional.
+* Tidak tersedianya validasi otomatis saat pengguna mencoba berlatih menulis secara mandiri.
+* Pengguna kesulitan mengetahui letak kesalahan atau kebenaran tulisan tangan yang mereka buat.
 
-Nama Project:
-NayaAksara
-
-Tagline:
-AI Powered Handwritten Javanese Script Recognition for Interactive Learning
-
-Tema:
-Accessible & Adaptive Learning
-
-Tujuan Utama:
-
-Membantu pengguna mempelajari dan melestarikan Aksara Jawa melalui sistem pembelajaran interaktif berbasis Artificial Intelligence yang mampu mengenali tulisan tangan pengguna secara otomatis.
-
-Masalah yang ingin diselesaikan:
-
-* Minat belajar Aksara Jawa semakin menurun.
-* Media pembelajaran masih dominan teori dan hafalan.
-* Tidak tersedia validasi otomatis saat pengguna berlatih menulis.
-* Pengguna sulit mengetahui apakah tulisan yang dibuat sudah benar atau belum.
-
-Solusi:
-
-Membangun aplikasi web yang dapat:
-
-* Mengunggah gambar tulisan Aksara Jawa.
-* Mengenali aksara menggunakan model AI.
-* Memberikan skor confidence.
-* Memberikan feedback valid atau tidak valid.
-* Menampilkan informasi/trivia terkait aksara yang dikenali.
+### 💡 Solusi NayaAksara
+NayaAksara hadir sebagai aplikasi berbasis web interaktif yang memungkinkan pengguna untuk:
+1. **Mengunggah** gambar/foto tulisan tangan Aksara Jawa.
+2. **Mengenali** aksara menggunakan model AI (CNN) dengan cepat.
+3. **Mendapatkan validasi** berupa skor tingkat keyakinan (*confidence score*).
+4. **Menerima *feedback*** instan (Valid / Tidak Valid).
+5. **Mempelajari trivia** dan informasi historis menarik mengenai aksara yang berhasil dikenali.
 
 ---
 
-# 2. TIM PENGEMBANG
+## 👥 2. Tim Pengembang
 
-Project Lead:
-
-Jasmine Az Zahra Ihsani
-
-Project Initiator:
-
-I Made Krishna Chandra
-
-AI Engineer:
-
-* I Made Krishna Chandra
-* Harits Abdurrahman Aufa
-
-Data Scientist:
-
-* Jasmine Az Zahra Ihsani
-* Pangestuti Bunga Yulianti
-
-Frontend Engineer:
-
-* Fauzan
-
-Backend Engineer:
-
-* Muhammad Andra Ariesfi
+| Peran | Nama Anggota |
+| :--- | :--- |
+| **Project Lead** | Jasmine Az Zahra Ihsani |
+| **Project Initiator** | I Made Krishna Chandra |
+| **AI Engineer** | I Made Krishna Chandra, Harits Abdurrahman Aufa |
+| **Data Scientist** | Jasmine Az Zahra Ihsani, Pangestuti Bunga Yulianti |
+| **Frontend Engineer** | Fauzan |
+| **Backend Engineer** | Muhammad Andra Ariesfi |
 
 ---
 
-# 3. TEKNOLOGI YANG DIGUNAKAN
+## 💻 3. Tech Stack
 
-Frontend:
-
-* ReactJS
-* React Router
-
-Backend:
-
-* NodeJS
-* ExpressJS
-* Multer
-* Axios
-
-Database:
-
-* MySQL
-
-AI:
-
-* TensorFlow / Keras
-* CNN Model
-* HuggingFace Space Deployment
-
-Version Control:
-
-* Git
-* GitHub
-
----
-
-# 4. ARSITEKTUR SISTEM
-
-FLOW APLIKASI
-
-User
-↓
-Frontend React
-↓
-Backend Express
-↓
-AI Inference API
-↓
-MySQL Database
-↓
-Response ke Frontend
-
-Detail Flow:
-
-1. User upload gambar.
-2. Frontend mengirim file ke backend.
-3. Backend menyimpan file sementara.
-4. Backend mengirim file ke AI API.
-5. AI mengembalikan prediction dan confidence.
-6. Backend melakukan validasi confidence.
-7. Backend mengambil trivia sesuai prediction.
-8. Backend menyimpan hasil ke database.
-9. Backend mengirim response ke frontend.
-10. Frontend menampilkan hasil kepada user.
+<div style="display: flex; gap: 20px;">
+  <div>
+    <strong>Frontend</strong>
+    <ul>
+      <li>ReactJS</li>
+      <li>React Router</li>
+    </ul>
+  </div>
+  <div>
+    <strong>Backend</strong>
+    <ul>
+      <li>Node.js</li>
+      <li>Express.js</li>
+      <li>Multer & Axios</li>
+    </ul>
+  </div>
+  <div>
+    <strong>Database & AI</strong>
+    <ul>
+      <li>MySQL</li>
+      <li>TensorFlow / Keras (CNN)</li>
+      <li>HuggingFace Spaces API</li>
+    </ul>
+  </div>
+</div>
 
 ---
 
-# 5. STRUKTUR PROJECT
+## ⚙️ 4. Arsitektur Sistem
 
-Backend
+Aplikasi ini menggunakan siklus data yang berkesinambungan antara *Client*, *Server*, dan *AI Model Endpoint*.
 
-backend/
+```mermaid
+graph LR
+    A[User / Frontend React] -->|Upload Gambar| B(Backend Express.js)
+    B -->|Send Image| C{AI Inference API}
+    C -->|Return Prediction & Confidence| B
+    B -->|Save to Database| D[(MySQL DB)]
+    B -->|Fetch Trivia| D
+    B -->|JSON Response| A
+```
 
-├── app.js
-
-├── config/
-
-│ └── db.js
-
-├── routes/
-
-│ ├── submitRoutes.js
-
-│ ├── triviaRoutes.js
-
-│ └── questRoutes.js
-
-├── services/
-
-│ └── aiService.js
-
-├── uploads/
-
-├── package.json
-
-└── .env
-
-Frontend
-
-frontend/
-
-├── src/
-
-│ ├── pages/
-
-│ │ ├── UploadPage.jsx
-
-│ │ ├── ScoringPage.jsx
-
-│ │ ├── TriviaPage.jsx
-
-│ │ └── HomePage.jsx
-
-│ ├── components/
-
-│ ├── services/
-
-│ └── style/
-
-└── package.json
+### Detail Alur Data:
+1. User mengunggah gambar melalui UI aplikasi.
+2. *Frontend* mengirimkan file melalui REST API ke *Backend*.
+3. *Backend* menyimpannya sementara dan meneruskan *request* file ke **AI Endpoint**.
+4. Model AI mengembalikan hasil `prediction` dan `confidence` score.
+5. *Backend* mengevaluasi skor tersebut (berdasarkan *threshold* validasi).
+6. *Backend* mengambil informasi trivia dari database MySQL berdasarkan aksara yang terdeteksi.
+7. Seluruh riwayat (submission) disimpan di database untuk *tracking*.
+8. Hasil final dikembalikan ke *Frontend* untuk ditampilkan kepada User.
 
 ---
 
-# 6. DATABASE STRUCTURE
+## 📂 5. Struktur Proyek
 
-TABLE: submissions
+Repositori ini telah dikonsolidasikan dan dibagi menjadi dua direktori utama:
 
+```text
+NayaAksara/
+├── backend/                  # REST API Server & Services
+│   ├── app.js                # Main server entry
+│   ├── config/db.js          # MySQL connection config
+│   ├── routes/               # API endpoints (submit, trivia, dll)
+│   ├── services/             # Integrasi external service (aiService.js)
+│   ├── uploads/              # Temp storage untuk file gambar
+│   ├── package.json
+│   └── .env
+│
+├── frontend/                 # Client UI (Vite + React)
+│   ├── src/
+│   │   ├── components/       # Reusable UI components (Navbar, dll)
+│   │   ├── pages/            # View pages (Upload, Scoring, Trivia, dll)
+│   │   ├── services/         # Axios API caller
+│   │   └── style/            # Modul CSS spesifik
+│   ├── index.html
+│   └── package.json
+│
+└── README.md
+```
+
+---
+
+## 🗄️ 6. Skema Database
+
+Sistem ini didukung oleh basis data MySQL dengan skema tabel berikut:
+
+### Tabel `submissions`
+Digunakan untuk mencatat seluruh riwayat hasil prediksi (gambar yang dikirim user).
+```sql
 CREATE TABLE submissions (
-id INT AUTO_INCREMENT PRIMARY KEY,
-image_path VARCHAR(255),
-prediction VARCHAR(50),
-confidence FLOAT,
-is_valid BOOLEAN,
-created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  image_path VARCHAR(255),
+  prediction VARCHAR(50),
+  confidence FLOAT,
+  is_valid BOOLEAN,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+```
 
-Fungsi:
-
-Menyimpan seluruh hasil prediksi user.
-
----
-
-TABLE: trivia_pool
-
+### Tabel `trivia_pool`
+Menyimpan bank fakta-fakta edukatif tentang Aksara Jawa.
+```sql
 CREATE TABLE trivia_pool (
-id INT AUTO_INCREMENT PRIMARY KEY,
-aksara VARCHAR(50),
-content TEXT
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  aksara VARCHAR(50),
+  content TEXT
 );
-
-Fungsi:
-
-Menyimpan trivia yang akan ditampilkan sesuai hasil prediksi aksara.
+```
 
 ---
 
-# 7. AI INTEGRATION
+## 🧠 7. Integrasi AI
 
-Endpoint Lama
+Untuk alasan stabilitas dan *uptime*, layanan AI yang awalnya menggunakan **Ngrok** telah dimigrasikan sepenuhnya ke infrastruktur cloud **HuggingFace Space**.
 
-Ngrok
-
-Masalah:
-
-* Sering mati
-* Tidak stabil
-* Harus dihidupkan manual
-
----
-
-Endpoint Baru
-
-Base URL:
-
-https://ikchandra-nayaaksara.hf.space/
-
-Inference Endpoint:
-
-POST /predict
-
-Request:
-
-multipart/form-data
-
-Field:
-
-image
-
-Response:
-
-{
-"prediction": "na",
-"confidence": 0.8816
-}
+* **Base URL Endpoint:** `https://ikchandra-nayaaksara.hf.space/`
+* **Route Endpoint:** `POST /predict`
+* **Format Request:** `multipart/form-data` (Field: `image`)
+* **Contoh Response JSON:**
+  ```json
+  {
+    "prediction": "na",
+    "confidence": 0.8816
+  }
+  ```
 
 ---
 
-# 8. BACKEND LOGIC
+## ✅ 8. Validasi & Logika Backend
 
-File:
+Proses validasi kelayakan prediksi dikontrol secara ketat melalui parameter *Threshold* yang disarankan oleh Tim AI:
 
-services/aiService.js
-
-Fungsi:
-
-Mengirim gambar ke AI API.
-
-Flow:
-
-Upload gambar
-↓
-Axios POST
-↓
-AI Endpoint
-↓
-Prediction + Confidence
-↓
-Return ke submitRoutes
-
----
-
-# 9. VALIDATION LOGIC
-
-Konfigurasi saat ini:
-
+```javascript
 const MIN_CONFIDENCE = 0.60;
+```
+* **Status `Valid`**: Jika `confidence >= 0.60`
+* **Status `Tidak Valid`**: Jika `confidence < 0.60`
 
-Valid:
-
-confidence >= 0.60
-
-Tidak Valid:
-
-confidence < 0.60
-
-Alasan:
-
-Tim AI merekomendasikan threshold sekitar 60%.
-
-Karena rata-rata confidence model berada di rentang tersebut.
+*Alasan penetapan*: Rata-rata confidence model CNN yang dirancang menghasilkan angka di rentang akurasi tersebut, sehingga skor 60% ditetapkan sebagai standar kelulusan awal.
 
 ---
 
-# 10. PERUBAHAN BESAR YANG SUDAH DILAKUKAN
+## 🚀 9. Milestone & Perubahan Signifikan
 
-A. Integrasi AI
+Bagian ini merangkum penyelesaian masalah dan pengoptimalan utama yang telah dicapai dalam persiapan peluncuran.
 
-SEBELUM:
-
-throw new Error("AI endpoint belum aktif");
-
-SESUDAH:
-
-AI endpoint aktif dan terhubung ke backend.
-
-Status:
-
-SELESAI
+| Kategori | Sebelum Perbaikan | Setelah Perbaikan | Status |
+| :--- | :--- | :--- | :---: |
+| **Endpoint AI** | Menggunakan Ngrok lokal, sering mati. | Terhubung penuh ke HuggingFace Space. | 🟢 Selesai |
+| **Integrasi AI** | `throw new Error("AI endpoint belum aktif")` | Terhubung aktif dengan backend `aiService.js`. | 🟢 Selesai |
+| **Bug Backend** | *Error:* `predictImage is not defined` | Perbaikan import modul / route. | 🟢 Selesai |
+| **Logic Threshold** | Threshold dipatok di angka `0.05`. | Threshold rasional dinormalisasi ke `0.60`. | 🟢 Selesai |
+| **Trivia Data** | Randomize error (Aksara NA tapi trivia HA). | Sinkronisasi SQL: `WHERE aksara = ?`. | 🟢 Selesai |
+| **Bank Trivia** | Hanya tersedia 3 aksara. | Ditambahkan untuk seluruh 20 Aksara Hanacaraka. | 🟢 Selesai |
+| **Scoring UI** | Menggunakan metrik "palsu" (*dummy*). | Menggunakan data live Confidence Score asli dari AI. | 🟢 Selesai |
 
 ---
 
-B. Perbaikan PredictImage Undefined
+## 📊 10. Hasil Evaluasi & Testing Aksara
 
-Masalah:
+Proses pengujian (UAT) menunjukkan kemampuan deteksi model pada sampel dataset:
 
-predictImage is not defined
-
-Penyebab:
-
-Import service belum sesuai.
-
-Status:
-
-SELESAI
+* **Aksara NA:** Prediksi `NA` | Confidence `88.16%` ➔ **BERHASIL**
+* **Aksara CA:** Prediksi `CA` | Confidence `95.66%` ➔ **BERHASIL**
+* **Aksara RA:** Prediksi `RA` | Confidence `96.76%` ➔ **BERHASIL**
+* **Aksara KA:** Prediksi `KA` | Confidence `89.45%` ➔ **BERHASIL**
+* **Aksara DA:** Prediksi `DA` | Confidence `86.48%` ➔ **BERHASIL**
 
 ---
 
-C. Pergantian Endpoint AI
+## 🐞 11. Temuan Bug Terbuka (Known Issues)
 
-SEBELUM:
+Terdapat batasan model AI yang harus diperhatikan untuk *improvement* ke depannya:
 
-Ngrok
-
-SESUDAH:
-
-HuggingFace Space
-
-Status:
-
-SELESAI
+1. **Akurasi Aksara HA Rendah**
+   * *Input*: Aksara `HA` dideteksi sebagai `PA` dengan Confidence `37.2%`.
+   * *Kesimpulan*: Kemungkinan masalah dataset latih yang tidak seimbang atau fitur kelas yang bertabrakan.
+2. **Ketiadaan Kelas "Bukan Aksara"**
+   * *Input*: Gambar acak (non-aksara) dimasukkan.
+   * *Output*: Kadang ditebak sebagai aksara tertentu dengan Confidence 98% - 99%.
+   * *Kesimpulan*: Model AI memaksa input apapun untuk masuk ke salah satu dari 20 kelas aksara, karena belum dilatih mendeteksi kondisi *"Unknown"*.
 
 ---
 
-D. Confidence Threshold
+## 🌍 12. Status Deployment
 
-SEBELUM:
-
-0.05
-
-SESUDAH:
-
-0.60
-
-Status:
-
-SELESAI
+| Layer | Lingkungan | Platform / Target | Status Saat Ini |
+| :--- | :--- | :--- | :--- |
+| **Frontend UI** | Client-Side | Vercel | 🟡 Belum Deploy (Ready to deploy) |
+| **Backend API** | Server-Side | Railway / Render | 🟡 Belum Deploy (Ready to deploy) |
+| **Database** | Storage | Cloud MySQL (PlanetScale/CleverCloud) | 🟡 Localhost (`DB_HOST=localhost`) |
+| **AI Model** | Inference API | HuggingFace Space | 🟢 **ONLINE** |
 
 ---
 
-E. Trivia Random
+## 🔮 13. Future Improvements (Roadmap)
 
-SEBELUM:
+**🔴 Prioritas Tinggi (Immediate Action):**
+1. Eksekusi deployment ke tahap Production (Vercel & Railway).
+2. Migrasi *local database* ke layanan Cloud Database.
+3. Migrasi penyimpanan file `uploads` lokal ke *Cloud Storage* (AWS S3 / Cloudinary).
+4. Penambahan dataset dan pembuatan threshold penolakan kelas asing (*Random Image Detection*).
 
-SELECT *
-FROM trivia_pool
-ORDER BY RAND()
-LIMIT 1
+**🟡 Prioritas Menengah (Next Iteration):**
+5. Penambahan dataset latih variatif & *Retraining* AI Model.
+6. Pembuatan sistem akun pengguna (Autentikasi).
+7. Panel analitik riwayat progres pembelajaran pengguna.
 
-Masalah:
-
-Prediction = NA
-Trivia = HA
-
-Tidak sinkron.
-
-SESUDAH:
-
-SELECT *
-FROM trivia_pool
-WHERE aksara = ?
-
-Status:
-
-SELESAI
+**🟢 Prioritas Rendah (Nice-to-have):**
+8. Sistem Papan Peringkat (Leaderboard) & Pencapaian (Achievements).
+9. Dashboard analitik mendalam untuk pengajar.
 
 ---
 
-F. Penambahan Trivia Hanacaraka
-
-SEBELUM:
-
-3 trivia
-
-SESUDAH:
-
-Seluruh aksara Hanacaraka memiliki trivia.
-
-Status:
-
-SELESAI
-
----
-
-G. UI Scoring
-
-SEBELUM:
-
-* Kejelasan Tulisan
-* Kerapihan Karakter
-* Kesesuaian Bentuk
-
-Masalah:
-
-Tidak berasal dari output AI.
-
-SESUDAH:
-
-Menggunakan Confidence Score sebagai indikator utama.
-
-Status:
-
-SELESAI
-
----
-
-# 11. HASIL TESTING
-
-TEST AKSARA
-
-NA
-
-Prediction: NA
-
-Confidence: 88.16%
-
-Status: BERHASIL
-
----
-
-CA
-
-Prediction: CA
-
-Confidence: 95.66%
-
-Status: BERHASIL
-
----
-
-RA
-
-Prediction: RA
-
-Confidence: 96.76%
-
-Status: BERHASIL
-
----
-
-KA
-
-Prediction: KA
-
-Confidence: 89.45%
-
-Status: BERHASIL
-
----
-
-DA
-
-Prediction: DA
-
-Confidence: 86.48%
-
-Status: BERHASIL
-
----
-
-# 12. TEMUAN BUG AI
-
-Kasus Aksara HA
-
-Input:
-
-HA
-
-Output:
-
-PA
-
-Confidence:
-
-37.2%
-
-Kesimpulan:
-
-Masalah berada pada model AI atau dataset.
-
-Bukan backend.
-
----
-
-Kasus Random Image
-
-Input:
-
-Gambar non aksara
-
-Output:
-
-KA
-
-Confidence:
-
-98%-99%
-
-Kesimpulan:
-
-Model belum memiliki kelas:
-
-"Bukan Aksara"
-
-Sehingga semua input dipaksa masuk ke salah satu kelas yang tersedia.
-
-Status:
-
-BELUM DIPERBAIKI
-
-Owner:
-
-Tim AI
-
----
-
-# 13. KNOWN LIMITATIONS
-
-1. Random image masih bisa diprediksi sebagai aksara.
-
-2. Belum ada kelas Unknown.
-
-3. Database masih localhost.
-
-4. Upload masih disimpan lokal.
-
-5. AI belum stabil untuk seluruh aksara.
-
-6. Belum ada autentikasi user.
-
----
-
-# 14. DEPLOYMENT STATUS
-
-Frontend
-
-Status:
-
-Belum Deploy
-
-Rencana:
-
-Vercel
-
----
-
-Backend
-
-Status:
-
-Belum Deploy
-
-Rencana:
-
-Railway
-
----
-
-Database
-
-Status:
-
-Masih localhost
-
-DB_HOST=localhost
-
-Belum cloud database.
-
----
-
-AI
-
-Status:
-
-Sudah online di HuggingFace Space
-
----
-
-# 15. FUTURE IMPROVEMENTS
-
-Prioritas Tinggi
-
-1. Deploy production.
-2. Cloud database.
-3. Cloud storage.
-4. Perbaiki random image detection.
-
-Prioritas Menengah
-
-5. Tambah dataset.
-6. Retraining model.
-7. User account.
-8. Progress tracking.
-
-Prioritas Rendah
-
-9. Leaderboard.
-10. Achievement system.
-11. Analytics dashboard.
-
----
-
-# 16. KESIMPULAN AKHIR
-
-Backend:
-
-90% selesai
-
-Frontend:
-
-85% selesai
-
-AI Integration:
-
-90% selesai
-
-Deployment:
-
-Belum selesai
-
-Project Status:
-
-Layak demo, presentasi, review mentor, dan submit capstone.
-
-Catatan Penting:
-
-Sebagian besar bug yang tersisa saat ini berada pada area AI Model dan Deployment, bukan pada integrasi Backend maupun Frontend.
+<div align="center">
+  <h3>✨ KESIMPULAN AKHIR ✨</h3>
+  <p><strong>Status Proyek:</strong> Layak didemokan, dipresentasikan, serta dilakukan submit untuk penilaian Capstone.</p>
+  <p><em>Frontend (85%) — Backend (90%) — AI Integration (90%)</em></p>
+  <p><small>Catatan: Sisa perbaikan (minor bug) saat ini difokuskan di area optimasi model dataset AI dan staging deployment.</small></p>
+</div>
