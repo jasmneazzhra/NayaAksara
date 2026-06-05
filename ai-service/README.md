@@ -1,26 +1,16 @@
 # Naya Aksara AI Service
 
-AI inference service for Naya Aksara image classification.
+| Komponen  | Spesifikasi |
+| --- | --- |
+| Layanan | AI inference service for Naya Aksara image classification.| 
+| Base URL (Hugging Face Space)| https://ikchandra-nayaaksara.hf.space | 
+| Endpoint | POST /predict |
+| Request Format | multipart/form-data | 
+| Field name | image |
+| Supported Input | jpg, jpeg, png | 
 
-## Endpoint
-
-POST /predict
-
-## Request Format
-
-multipart/form-data
-
-Field name:
-
-image
-
-Supported input:
-
-jpg, jpeg, png
-
-## Response Format
-
-```json
+## Response Format (Example)
+```json 
 {
   "prediction": "ha",
   "confidence": 0.91
