@@ -4,6 +4,7 @@ const multer = require("multer");
 
 const db = require("../config/db");
 const { predictImage } = require("../services/aiService");
+const triviaData = require("../data/trivia.json");
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -69,28 +70,12 @@ router.post("/", upload.single("image"), async (req, res) => {
       });
     }
 
-    const sql = `
-    SELECT *
-    FROM trivia_pool
-    WHERE aksara = ?
-    LIMIT 1
-`;
-
-    db.query(sql, [prediction], (err, result) => {
-      if (err) {
-        return res.status(500).json({
-          status: "error",
-          message: "Database error",
-        });
-      }
-
-      const trivia =
-        result.length > 0
-          ? result[0]
-          : {
-              aksara: prediction,
-              content: `Belum ada trivia untuk aksara ${prediction}`,
-            };
+    const foundTrivia = triviaData.find(t => t.aksara === prediction);
+    
+    const trivia = foundTrivia ? foundTrivia : {
+      aksara: prediction,
+      content: `Belum ada trivia untuk aksara ${prediction}`,
+    };
 
       const insertSql = `
             INSERT INTO submissions
@@ -114,7 +99,6 @@ router.post("/", upload.single("image"), async (req, res) => {
           trivia: trivia,
         },
       });
-    });
   } catch (error) {
     console.error(error);
 
