@@ -1,0 +1,31 @@
+{
+  "name": "nayaaksara",
+  "version": "1.0.0",
+  "description": "Project Tim Capstone - Coding Camp Powered by DBS",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasmneazzhra/NayaAksara.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/jasmneazzhra/NayaAksara/issues"
+  },
+  "homepage": "https://github.com/jasmneazzhra/NayaAksara#readme",
+  "dependencies": {
+    "axios": "^1.16.1",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "form-data": "^4.0.5",
+    "multer": "^2.1.1",
+    "mysql2": "^3.22.3",
+    "nodemon": "^3.1.14"
+  }
+}
